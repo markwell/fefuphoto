@@ -1,0 +1,34 @@
+<template name="team">
+  <section class="team_s" id="team">
+    <div class="container">
+        <div class="row">
+            <div class="section_title">
+                <i class="fa fa fa-users"></i>
+                <h3>Команда</h3>
+            </div>
+        </div>
+        <div class="row">
+          {{#each people}}
+            <div class="col-md-3 col-sm-6">
+              <div class="team-item">
+                <div class="photo embed-responsive embed-responsive-4by3" style="background-image:url({{img}})"></div>
+                <h4>{{name}}</h4>
+                <span>{{post}}</span>
+                <br>
+                <p>{{description}}</p>
+                <div class="team-btns">
+                  {{#each nets}}
+                    <a href="{{href}}" target="_blank" title="{{href}}">
+                      <button class="soc_btn_gray">
+                        <i class="fa fa-{{type}}"></i>
+                      </button>
+                    </a>
+                  {{/each}}
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+    </div>
+  </section>
+</template>

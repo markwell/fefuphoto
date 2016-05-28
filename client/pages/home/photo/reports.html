@@ -1,0 +1,36 @@
+<template name="reports">
+  <section id="reports">
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="section_title">
+          <i class="fa fa-camera-retro"></i>
+          <h3>Фотоотчеты</h3>
+        </div>
+      </div>
+
+      <div class="row">
+        {{#each reports}}
+          <a href="/report/{{_id}}">
+            <div class="col-md-4 col-sm-6 p0">
+              <div class="report-block embed-responsive embed-responsive-4by3" style="background-image:url({{img}})">
+                <div class="image-wrap">
+                  <div class="work-descr">
+                    <h4>{{title}}</h4>
+                    <p>{{description}}</p>
+                    <p>{{date}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        {{/each}}
+      </div>
+
+      <div class="row next_button">
+        <button type="button" class="my_btn btn_md" data-toggle="collapse" data-target="#collapseReports">Смотреть далее</button>
+      </div>
+
+    </div>
+  </section>
+</template>

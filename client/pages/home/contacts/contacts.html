@@ -1,0 +1,23 @@
+<template name="contacts">
+  <section class="contacts" id="contacts">
+    <div class="container">
+      <div class="row">
+          <div class="section_title">
+              <i class="fa fa-comment"></i>
+              <h3>Контакты</h3>
+          </div>
+      </div>
+      <div class="row">
+        <div class="contacts_inner" >
+          {{#each contacts}}
+            <div class="col-md-3 col-xs-6">
+              <i class="fa fa-{{type}}"></i><br>
+              <span>{{type}}</span><br><br>
+              <p><a href="{{href}}" target="_blank">{{value}}</a></p>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

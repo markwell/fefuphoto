@@ -1,0 +1,22 @@
+.report-block
+  position: relative;
+  cursor pointer
+  background-size cover
+  .image-wrap
+    transition opacity .3s
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(69,69,69,.4);
+    display: flex;
+    opacity: 0;
+    .work-descr
+      color: #fff;
+      text-align: center;
+      margin: auto;
+      opacity: 1;
+  &:hover
+    .image-wrap
+      opacity: 1;
