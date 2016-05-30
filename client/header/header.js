@@ -1,7 +1,4 @@
 Template.header.helpers({
-  quote: function() {
-    return Content.findOne('quote');
-  },
   menu: [
     {href:"aboutus", name:"О нас"},
     {href:"reports", name:"Фото"},
