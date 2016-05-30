@@ -14,13 +14,35 @@ Template.contacts.helpers({
 });
 
 Template.contacts.events({
-  // 'focus .edit': function(e){
-  //     alert('privet');
-  // },
+  'focus .edit': function(e){
+    var id = e.target.dataset.id;
+    var baseLink = e.target.innerHTML;
+
+    e.target.onblur = function(){
+      link = e.target.innerHTML;
+      if(link !== baseLink){
+        document.getElementById('loader').style.display = 'block';
+        Contacts.update(id,
+          { $set: { 'value': link },function(err, obj)
+          {
+
+          }
+        });
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('mes-edit').style.display = 'block';
+
+        setTimeout(function(){
+          document.getElementById('mes-edit').style.display = 'none';
+        },5000)
+      }
+    }
+  },
+
   'click .remove-contact': function(e){
       var id = e.target.dataset.id;
       Contacts.remove(id);
   },
+
   'submit #contact-add': function(){
     var type = document.contactAdd.type.value;
     var link = document.contactAdd.link.value;
