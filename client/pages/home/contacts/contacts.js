@@ -32,7 +32,8 @@ Template.contacts.events({
         a.href = link;
         return a.hostname;
       })();
-    },
+    }
+  },
     'click .remove-contact': function(e){
         var id = e.target.dataset.id;
         Contacts.remove(id);
