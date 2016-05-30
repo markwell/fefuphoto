@@ -14,6 +14,9 @@ Template.contacts.helpers({
 });
 
 Template.contacts.events({
+  // 'focus .edit': function(e){
+  //     alert('privet');
+  // },
   'click .remove-contact': function(e){
       var id = e.target.dataset.id;
       Contacts.remove(id);
@@ -32,11 +35,6 @@ Template.contacts.events({
         a.href = link;
         return a.hostname;
       })();
-    }
-  },
-    'click .remove-contact': function(e){
-        var id = e.target.dataset.id;
-        Contacts.remove(id);
     }
     Contacts.insert(
       {
