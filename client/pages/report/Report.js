@@ -17,7 +17,6 @@ Template.Report.events({
     }
   },
   'change input': function(e) {
-    console.log(e);
     reportId = this.id;
     var files = e.target.files;
     for (var i = 0, ln = files.length; i < ln; i++) {
@@ -38,7 +37,7 @@ console.log(initPhotoSwipeFromDOM);
 Template.Report.onRendered(function() {
   setTimeout(function() {
       initPhotoSwipeFromDOM('.my-gallery');
-      console.log(123);
+
   }, 1000);
 
 });

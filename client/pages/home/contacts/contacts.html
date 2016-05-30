@@ -8,14 +8,32 @@
           </div>
       </div>
       <div class="row">
-        <div class="contacts_inner" >
+        <div class="contacts_inner">
           {{#each contacts}}
-            <div class="col-md-3 col-xs-6">
+            <div class="col-md-3 col-xs-6 contact-block">
+              <i class="fa fa-times remove-contact" data-id="{{_id}}"></i>
               <i class="fa fa-{{type}}"></i><br>
               <span>{{type}}</span><br><br>
               <p><a href="{{href}}" target="_blank">{{value}}</a></p>
             </div>
           {{/each}}
+          <div class="col-md-3 col-xs-6">
+            <form id="contact-add" name="contactAdd">
+    				  <div class="form-group">
+    				    <label>Социальная сеть</label>
+    				  <select name="type" id="">
+                  {{#each nets}}
+                    <option value="{{type}}">{{type}}</option>
+                  {{/each}}
+    					</select>
+    				  </div>
+    				  <div class="form-group">
+    				    <label>Ссылка</label>
+    				    <input type="text" class="form-control" name="link">
+    				  </div>
+    				  <button type="submit" class="btn btn-default">Добавить</button>
+    				</form>
+          </div>
         </div>
       </div>
     </div>
