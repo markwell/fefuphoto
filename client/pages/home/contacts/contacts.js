@@ -14,6 +14,9 @@ Template.contacts.helpers({
 });
 
 Template.contacts.events({
+
+  // ИЗМЕНЕНИЕ ССЫЛКИ В БД
+
   'focus .edit': function(e){
     var id = e.target.dataset.id;
     var baseLink = e.target.innerHTML;
@@ -33,15 +36,19 @@ Template.contacts.events({
 
         setTimeout(function(){
           document.getElementById('mes-edit').style.display = 'none';
-        },5000)
+        },1000)
       }
     }
   },
+
+  // УДАЛЕНИЕ ИЗ БД
 
   'click .remove-contact': function(e){
       var id = e.target.dataset.id;
       Contacts.remove(id);
   },
+
+  // ДОБАВЛЕНИЕ В БД
 
   'submit #contact-add': function(){
     var type = document.contactAdd.type.value;
@@ -66,4 +73,12 @@ Template.contacts.events({
       }
     );
   }
+});
+
+Template.contacts.onRendered(function() {
+  // ИНИЦИЛИЗАЦИЯ СОРТИРОВКИ
+  Sortable.create(listWithHandle, {
+    handle: '.move-block',
+    animation: 150
+  });
 });

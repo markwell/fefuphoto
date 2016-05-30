@@ -11,18 +11,21 @@
       <div id="mes-edit">Сохранено</div>
       <div class="row">
         <div class="contacts_inner">
-          {{#each contacts}}
-            <div class="col-md-3 col-xs-6 contact-block">
-              <i class="fa fa-times remove-contact" data-id="{{_id}}"></i>
-              <i class="fa fa-{{type}}"></i><br>
-              <span>{{type}}</span><br><br>
-              <p>
-                <!-- <a href="{{href}}" target="_blank"> -->
-                  <div data-id="{{_id}}" class="edit" contenteditable>{{value}}</div>
-                <!-- </a> -->
-              </p>
-            </div>
-          {{/each}}
+          <div id="listWithHandle">
+            {{#each contacts}}
+              <div class="col-md-3 col-xs-6 contact-block">
+                <i class="fa fa-arrows move-block" aria-hidden="true"></i>
+                <i class="fa fa-times remove-contact" data-id="{{_id}}"></i>
+                <i class="fa fa-{{type}}"></i><br>
+                <span>{{type}}</span><br><br>
+                <p>
+                  <!-- <a href="{{href}}" target="_blank"> -->
+                    <div data-id="{{_id}}" class="edit" contenteditable>{{value}}</div>
+                  <!-- </a> -->
+                </p>
+              </div>
+            {{/each}}
+          </div>
           <div class="col-md-3 col-xs-6">
             <form id="contact-add" name="contactAdd">
     				  <div class="form-group">
