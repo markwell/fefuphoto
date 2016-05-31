@@ -30,6 +30,8 @@ cfs:tempstore@0.1.5
 cfs:upload-http@0.0.20
 cfs:worker@0.1.4
 check@1.2.1
+coffeescript@1.0.17
+dbarrett:dropzonejs@4.2.1
 dburles:mongo-collection-instances@0.3.4
 ddp@1.2.5
 ddp-client@1.2.7
@@ -100,5 +102,6 @@ twbs:bootstrap@3.3.6
 ui@1.0.11
 underscore@1.0.8
 url@1.0.9
+veto44:bootstrap-select@1.0.0
 webapp@1.2.8
 webapp-hashing@1.0.9

@@ -23,8 +23,13 @@ twbs:bootstrap
 fortawesome:fontawesome
 stolinski:stylus-multi
 iron:router
-rubaxa:sortable
 spectrum:photoswipe
+veto44:bootstrap-select
 
 cfs:standard-packages
 cfs:filesystem
+rubaxa:sortable
+coffeescript
+dbarrett:dropzonejs
+
+random

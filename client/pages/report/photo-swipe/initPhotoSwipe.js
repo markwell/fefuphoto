@@ -9,7 +9,7 @@ window.initPhotoSwipeFromDOM = function(gallerySelector) {
             figureEl,
             linkEl,
             size,
-            item;  
+            item;
 
 
         $(el).find('figure').each(function() {

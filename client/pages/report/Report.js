@@ -1,3 +1,4 @@
+
 Template.Report.helpers({
   report: function() {
     return Reports.findOne(this.id);
@@ -16,6 +17,10 @@ Template.Report.events({
       });
     }
   },
+  'mouseover .dropzone': function(e) {
+    ReportId = this.id;
+
+  },
   'change input': function(e) {
     reportId = this.id;
     var files = e.target.files;
@@ -29,19 +34,15 @@ Template.Report.events({
   }
 });
 
-
-console.log(initPhotoSwipeFromDOM);
-
-
-// execute above function
-Template.Report.onRendered(function() {
-  setTimeout(function() {
-      initPhotoSwipeFromDOM('.my-gallery');
-
-  }, 1000);
-
-});
-
-
-/*СКРИПТ DRUG'N'DROP В РАЗДЕЛЕ "EDITMEMBERS"*/
-// Sortable.create(simpleList, {animation: 500});
+Template.Report.onRendered(function(e) {
+  $('.dropzone').dropzone({
+    accept: function(file, done) {
+      file = new FS.File(file);
+      file.report = ReportId;
+      Images.insert(file, function (err, res) {
+        done();
+      });
+    }
+  });
+    initPhotoSwipeFromDOM('.my-gallery');
+  });
