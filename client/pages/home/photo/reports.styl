@@ -1,22 +1,55 @@
-.report-block
-  position: relative;
-  cursor pointer
-  background-size cover
-  .image-wrap
-    transition opacity .3s
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(69,69,69,.4);
-    display: flex;
-    opacity: 0;
-    .work-descr
-      color: #fff;
-      text-align: center;
-      margin: auto;
-      opacity: 1;
-  &:hover
+#reports
+  .report-block
+    position: relative;
+    cursor pointer
+    background-size cover
+    text-align: center
+    > *
+      text-decoration none !important
+    .remove-report
+    .edit-report
+      position absolute
+      font-size 1.5em
+      color #888
+      right 5px
+      top 5px
+      opacity 0
+      transition opacity .3s
+      cursor pointer
+      z-index 99999999
+    .edit-report
+      right 35px
+    &:hover
+      .edit-report
+      .remove-report
+        opacity 1
     .image-wrap
-      opacity: 1;
+      transition opacity .3s
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(69,69,69,.4);
+      display: flex;
+      opacity: 0;
+      .work-descr
+        color: #fff;
+        text-align: center;
+        margin: auto;
+        opacity: 1;
+    &:hover
+      .image-wrap
+        opacity: 1;
+  .add-report
+    text-align center
+    transition opacity .3s
+    opacity 0.5
+    height 250px
+    line-height 250px
+    border-radius 10px
+    border dashed 3px #888
+    cursor pointer
+    margin 10px
+    &:hover
+      opacity 1

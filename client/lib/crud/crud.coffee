@@ -36,6 +36,8 @@ Params = {}
     content += '<label>'+title+'</label>'
     if type == 'text'
       content += '<input class="form-control" type="text" name="'+field+'" value="'+val+'">'
+    if type == 'date'
+      content += '<input class="form-control" type="date" name="'+field+'" value="'+val+'">'
     else if type == 'textarea'
       content += '<textarea class="form-control" name="'+field+'">'+val+'</textarea>'
 
