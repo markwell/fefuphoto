@@ -20,10 +20,18 @@
                 <i class="fa fa-times remove-contact" data-id="{{_id}}"></i>
                 <i class="fa fa-pencil edit-contact" data-id="{{_id}}"></i>
                 <i class="fa fa-{{type}}"></i><br>
-                <span>{{type}}</span><br><br>
-                <p>
-                    <div data-id="{{_id}}" class="edit" contenteditable>{{value}}</div>
-                </p>
+                <span>{{name}}</span><br>
+                <div class="href">
+                  {{#if isPhone type}}
+                    <div>{{href}}</div>
+                  {{else}}
+                    {{#if isMail type}}
+                      <a href="mailto:{{href}}">{{href}}</a>
+                    {{else}}
+                      <a href="{{href}}" target="_blank">Перейти</a>
+                    {{/if}}
+                  {{/if}}
+                </div>
               </div>
             {{/sortable}}
             <div class="col-md-3 col-xs-6 add-contact">
@@ -31,26 +39,6 @@
             </div>
           </div>
 
-          <!-- <button class="btn btn-primary add-contact">Добавить</button> -->
-
-          <!-- {{/sortable}} -->
-          <!-- <div class="col-md-4 col-xs-6">
-            <form id="contact-add" name="contactAdd">
-    				  <div class="form-group">
-    				    <label>Социальная сеть</label>
-    				  <select name="type" class="selectpicker">
-                  {{#each nets}}
-                    <option value="{{type}}" data-icon="{{type}}">{{type}}</option>
-                  {{/each}}
-    					</select>
-    				  </div>
-    				  <div class="form-group">
-    				    <label>Ссылка</label>
-    				    <input type="text" class="form-control" name="link">
-    				  </div>
-    				  <button type="submit" class="btn btn-default">Добавить</button>
-    				</form>
-          </div> -->
         </div>
       </div>
     </div>

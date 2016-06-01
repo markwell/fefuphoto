@@ -1,9 +1,25 @@
+Template.contacts.onCreated(function() {
+  // определяем поля для формы
+  this.fields = [
+    {field: 'type', type: 'select', options: NETS, title: 'Тип'},
+    {field: 'name', type: 'text', title: 'Название'},
+    {field: 'href', type: 'text', title: 'Ссылка или номер'}
+  ];
+})
+
+
 Template.contacts.helpers({
+  // получаем контакты
   contacts: function() {
     return Contacts.find({}, {sort: {rank: 1}});
   },
-  title: "Контакты"
+  title: "Контакты",
+  // проверки на тип
+  isPhone: function(type) { return (type == 'phone') ? true : false; },
+  isMail: function(type) { return (type == 'envelope-o') ? true : false; },
+  isNet: function(type) { return (type != 'phone' && type != 'envelope-o') ? true : false; }
 });
+
 
 Template.contacts.events({
 
@@ -16,36 +32,28 @@ Template.contacts.events({
   },
 
   // радактирование контакта
-  'click .edit-contact': function(e) {
+  'click .edit-contact': function(e, template) {
+    console.log(template);
     CRUD({
       collection: Contacts,
       title: "Редактировать контакт",
       id: e.target.dataset.id,
-      fields: [
-        {field: 'type', type: 'select', options: NETS, title: 'Тип'},
-        {field: 'value', type: 'text', title: 'Название/номер'},
-        {field: 'href', type: 'text', title: 'Ссылка (если есть)'}
-      ]
+      fields: template.fields
     });
   },
 
   // создание контакта
-  'click .add-contact': function(e) {
+  'click .add-contact': function(e, template) {
     CRUD({
       collection: Contacts,
       title: 'Создать новый контакт',
-      fields: [
-        {field: 'type', type: 'select', options: NETS, title: 'Тип'},
-        {field: 'value', type: 'text', title: 'Название/номер'},
-        {field: 'href', type: 'text', title: 'Ссылка (если есть)'}
-      ]
+      fields: template.fields
     });
   }
 });
 
-Template.contacts.onRendered(function() {
-});
 
+// функция для проверки http:// (пока не работает)
 var checkHttp = function(val) {
   var pattern = /http:\/\//;
   if((val.search(pattern) == -1)) {

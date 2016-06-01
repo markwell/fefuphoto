@@ -2,22 +2,6 @@
   .contacts_inner
     margin-top: 20px
     text-align: center
-    i
-      font-size: 36px
-      color: #c5c5c5
-      margin-bottom: 12px
-    span
-      text-transform: uppercase
-      font-family: "RalewayRegular", sans-serif
-      font-size: 18px
-      color: #b4b4b4
-    a
-      color: #000
-      color: #303030
-    form
-      margin 20px
-      padding 20px
-      border 2px dotted gray
     .contact-block
       margin-top 60px
       &:hover
@@ -26,11 +10,26 @@
     .contact
       transition box-shadow .3s
       padding 10px
+      min-height 130px
+      span
+        text-transform: uppercase
+        font-family: "RalewayRegular", sans-serif
+        font-size: 18px
+        color: #b4b4b4
+      i
+        font-size: 36px
+        color: #c5c5c5
+        margin-bottom: 12px
+      .href
+        margin 10px
+        opacity 0
+        transition opacity .3s
       &:hover
         box-shadow: 0 0 10px rgba(0,0,0,0.2)
         .remove-contact
         .move-block
         .edit-contact
+        .href
           opacity 1
       .remove-contact
       .edit-contact
@@ -56,8 +55,8 @@
   .add-contact
     transition opacity .3s
     opacity 0.5
-    height 100px
-    line-height 100px
+    height 110px
+    line-height 110px
     border-radius 10px
     border dashed 3px #888
     cursor pointer
