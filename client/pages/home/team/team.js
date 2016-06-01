@@ -10,13 +10,13 @@ Template.team.onCreated(function() {
 
 Template.team.helpers({
   people: function() {
-    return Team.find({});
+    return Team.find();
   }
 });
 
 Template.team.onRendered(function() {
   setTimeout(function() {
-      $('[title]').tooltip();
+    $('[title]').tooltip();
   }, 500);
   var Dropzone = require("dropzone");
 });
@@ -25,6 +25,13 @@ Template.team.events({
   'click .collapse-btn-link': function(e){
     e.preventDefault();
     $("#net-link").css("display", "block");
+  },
+
+  // удаление участника
+  'click .remove-person': function(e, template) {
+    var id = e.target.dataset.id;
+    Team.remove(id);
+    e.preventDefault();
   },
 
   // добавление участника

@@ -11,10 +11,10 @@
   .person
     text-align: center
     .remove-person
+    .move-block
     .edit-person
       position absolute
       font-size 1.5em
-      color #888
       right 5px
       top 5px
       opacity 0
@@ -22,9 +22,16 @@
       cursor pointer
     .edit-person
       right 35px
+      color #2aa6e0
+    .remove-person
+      color red
+    .move-block
+      color #2aa6e0
+      top 35px
     &:hover
       .edit-person
       .remove-person
+      .move-block
         opacity 1
     h4
       font-family: "RalewayBold", sans-serif;

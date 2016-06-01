@@ -1,7 +1,6 @@
 Template.reports.onCreated(function() {
   this.fields = [
     {field: 'title', type: 'text', 'title': 'Название'},
-    {field: 'title', type: 'textarea', 'title': 'Описание'},
     {field: 'date', type: 'date', 'title': 'Дата'}
   ];
 });
@@ -15,7 +14,8 @@ Template.reports.helpers({
 
 Template.reports.events({
   'click .remove-report': function(e, template) {
-
+    var id = e.target.dataset.id;
+    Reports.remove(id);
     e.preventDefault();
   },
   'click .edit-report': function(e, template) {
@@ -35,5 +35,5 @@ Template.reports.events({
       fields: template.fields
     });
     e.preventDefault();
-  },
-})
+  }
+});

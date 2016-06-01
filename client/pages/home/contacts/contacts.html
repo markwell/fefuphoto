@@ -7,12 +7,8 @@
               <h3>Контакты</h3>
           </div>
       </div>
-      <div id="loader"><span></span></div>
-      <div id="mes-edit">Сохранено</div>
       <div class="row">
         <div class="contacts_inner">
-
-
           <div id="contacts">
             {{#sortable items=contacts dataIdAttr="data-id" handle=".move-block" animation="200" ghostClass="sortable-ghost" options=sortOptions}}
               <div class="col-md-3 col-xs-6 contact">
@@ -28,7 +24,7 @@
                     {{#if isMail type}}
                       <a href="mailto:{{href}}">{{href}}</a>
                     {{else}}
-                      <a href="{{href}}" target="_blank">Перейти</a>
+                      <a href="{{href}}" target="_blank">{{href}}</a>
                     {{/if}}
                   {{/if}}
                 </div>
@@ -38,7 +34,6 @@
               Добавить контакт
             </div>
           </div>
-
         </div>
       </div>
     </div>

@@ -7,6 +7,7 @@
     > *
       text-decoration none !important
     .remove-report
+    .move-block
     .edit-report
       position absolute
       font-size 1.5em
@@ -17,11 +18,18 @@
       transition opacity .3s
       cursor pointer
       z-index 99999999
+    .remove-report
+      color red
     .edit-report
+      color #2aa6e0
       right 35px
+    .move-block
+      color #2aa6e0
+      top 35px
     &:hover
       .edit-report
       .remove-report
+      .move-block
         opacity 1
     .image-wrap
       transition opacity .3s

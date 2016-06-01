@@ -8,9 +8,10 @@
             </div>
         </div>
         <div class="row">
-          {{#each people}}
+          {{#sortable items=people dataIdAttr="data-id" handle=".move-block" animation="200" ghostClass="sortable-ghost" options=sortOptions}}
             <div class="col-md-3 col-sm-6">
               <div class="person">
+                <span class="fa fa-arrows move-block" aria-hidden="true"></span>
                 <span class="fa fa-pencil edit-person" data-id="{{_id}}"></span>
                 <span class="fa fa-times remove-person" data-id="{{_id}}"></span>
                 <!-- <div class="photo embed-responsive embed-responsive-4by3" style="background-image:url({{img}})"></div> -->
@@ -30,12 +31,11 @@
                 </div>
               </div>
             </div>
-          {{/each}}
+          {{/sortable}}
           <div class="col-md-3 col-sm-6 add-person">
             Добавить Участника
           </div>
         </div>
     </div>
   </section>
-  {{> teamModal}}
 </template>
