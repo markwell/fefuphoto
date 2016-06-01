@@ -44,6 +44,9 @@ Params = {}
       content += '</select>'
     content += '</div>'
 
+  params.title ?= "Редактор"
+  $('#crud').find('.modal-title').text(params.title)
+
   $('#crud').modal().find('.modal-body').html(content)
 
 

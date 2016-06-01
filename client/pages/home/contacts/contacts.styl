@@ -27,72 +27,40 @@
       transition box-shadow .3s
       padding 10px
       &:hover
-        box-shadow: 0 0 10px rgba(0,0,0,0.5)
+        box-shadow: 0 0 10px rgba(0,0,0,0.2)
         .remove-contact
         .move-block
+        .edit-contact
           opacity 1
       .remove-contact
+      .edit-contact
+      .move-block
         transition opacity .3s
         display block
         position absolute
+        top 5px
+        padding 5px
+        opacity 0
+        cursor pointer
+        font-size: 1.5em
+      .remove-contact
         color red
-        font-size: 1.5em
         right 5px
-        top 5px
-        padding 10px
-        opacity 0
-        cursor pointer
-      .move-block
-        transition opacity .3s
-        opacity 0
-        position absolute
+      .edit-contact
         color #2aa6e0
-        font-size: 1.5em
-        padding 10px
+        right 35px
+      .move-block
+        color #2aa6e0
         left 5px
-        top 5px
-        cursor pointer
 
-  .edit
-    padding 3px
-    transition all .3s;
-    border 1px dotted rgba(73, 73, 73, .5)
-    &:focus
-      border 1px dotted rgba(82, 168, 236, 1)
-      box-shadow 0 1px 1px rgba(0,0,0,0.075) inset, 0 0 8px rgba(82,168,236,0.9)
-      outline 0 none
-  #loader
-    position fixed
-    display none
-    top 0px
-    left 0px
-    height 100%
-    width 100%
-    background #f2f2f2
-    opacity 0.9
-    z-index 30
-    span
-      display block
-      background url('/img/load.gif') no-repeat
-      width 128px
-      height 15px
-      position absolute
-      left 50%
-      top 50%
-      margin -7px 0 0 -56px
-
-  #mes-edit
-    display none
-    color #000
-    font-size 15px
-    border 1px solid #c5c5c5
-    box-shadow 0 0 10px #c5c5c5
-    padding 10px
-    text-align center
-    width 400px
-    position fixed
-    left 50%
-    top 50%
-    margin -20px 0 0 -200px
-    font-weight bold
-    background #fff
+  .add-contact
+    transition opacity .3s
+    opacity 0.5
+    height 100px
+    line-height 100px
+    border-radius 10px
+    border dashed 3px #888
+    cursor pointer
+    margin 10px
+    &:hover
+      opacity 1
