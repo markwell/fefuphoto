@@ -14,9 +14,10 @@ Params = {}
   item = {}
 
   if params.id
-    item = Contacts.findOne(params.id)
+    item = params.collection.findOne(params.id)
   else
     params.id = Random.id()
+
 
   fields = []
 
@@ -35,6 +36,9 @@ Params = {}
     content += '<label>'+title+'</label>'
     if type == 'text'
       content += '<input class="form-control" type="text" name="'+field+'" value="'+val+'">'
+    else if type == 'textarea'
+      content += '<textarea class="form-control" name="'+field+'">'+val+'</textarea>'
+
     else if type == 'select'
       content += '<select class="form-control selectpicker" name="'+field+'">'
       for k, v of options

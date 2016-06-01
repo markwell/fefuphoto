@@ -8,8 +8,24 @@
     width 100%
     padding-bottom 100%
     border-radius 50%
-  .team-item
+  .person
     text-align: center
+    .remove-person
+    .edit-person
+      position absolute
+      font-size 1.5em
+      color #888
+      right 5px
+      top 5px
+      opacity 0
+      transition opacity .3s
+      cursor pointer
+    .edit-person
+      right 35px
+    &:hover
+      .edit-person
+      .remove-person
+        opacity 1
     h4
       font-family: "RalewayBold", sans-serif;
       color: #000;
@@ -26,14 +42,16 @@
     height 45px
     a
       text-decoration none
-  .form-team
-    padding 30px
-    text-align left
-    #inp_file
-      display none
-    #net-link
-      display none
-.modal-btn
-  position absolute
-  margin-top 50%
-  
+
+  .add-person
+    text-align center
+    transition opacity .3s
+    opacity 0.5
+    height 250px
+    line-height 250px
+    border-radius 10px
+    border dashed 3px #888
+    cursor pointer
+    margin 10px
+    &:hover
+      opacity 1

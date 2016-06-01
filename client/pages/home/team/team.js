@@ -1,3 +1,13 @@
+Template.team.onCreated(function() {
+  this.fields = [
+    {field:'name', type: 'text', title: 'Имя'},
+    {field:'post', type: 'text', title: 'Должность'},
+    {field:'description', type: 'textarea', title: 'Описание'},
+    {field:'net.vk', type: 'text', title: 'Ссылка vk.com'},
+    {field:'net.instagram', type: 'text', title: 'Ссылка instagram'}
+  ]
+});
+
 Template.team.helpers({
   people: function() {
     return Team.find({});
@@ -15,5 +25,24 @@ Template.team.events({
   'click .collapse-btn-link': function(e){
     e.preventDefault();
     $("#net-link").css("display", "block");
+  },
+
+  // добавление участника
+  'click .add-person': function(e, template) {
+    CRUD({
+      collection: Team,
+      title: 'Добавить нового участника',
+      fields: template.fields
+    });
+  },
+
+  // редактирование участника
+  'click .edit-person': function(e, template) {
+    CRUD({
+      collection: Team,
+      id: e.target.dataset.id,
+      title: 'Редактировать участника',
+      fields: template.fields
+    });
   }
 });

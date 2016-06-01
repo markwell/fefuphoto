@@ -10,8 +10,11 @@
         <div class="row">
           {{#each people}}
             <div class="col-md-3 col-sm-6">
-              <div class="team-item">
-                <div class="photo embed-responsive embed-responsive-4by3" style="background-image:url({{img}})"></div>
+              <div class="person">
+                <span class="fa fa-pencil edit-person" data-id="{{_id}}"></span>
+                <span class="fa fa-times remove-person" data-id="{{_id}}"></span>
+                <!-- <div class="photo embed-responsive embed-responsive-4by3" style="background-image:url({{img}})"></div> -->
+                <div class="photo embed-responsive embed-responsive-4by3" style="background-image:url('/img/team-4.jpg')"></div>
                 <h4>{{name}}</h4>
                 <span>{{post}}</span>
                 <br>
@@ -28,8 +31,8 @@
               </div>
             </div>
           {{/each}}
-          <div class="col-md-3 col-sm-6">
-            <button type="button" class="btn btn-primary modal-btn" data-toggle="modal" data-target=".bs-example-modal-sm">Добавить участника</button>
+          <div class="col-md-3 col-sm-6 add-person">
+            Добавить Участника
           </div>
         </div>
     </div>
