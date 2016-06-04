@@ -13,7 +13,6 @@ Template.about.helpers({
 
 Template.about.events({
   'click .edit-about': function(e, template) {
-    console.log(e.target.dataset.id);
     CRUD({
       collection: Content,
       id: 'about',

@@ -19,7 +19,6 @@ Template.Report.events({
   },
   'mouseover .dropzone': function(e) {
     ReportId = this.id;
-
   },
   'change input': function(e) {
     reportId = this.id;

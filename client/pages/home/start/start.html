@@ -1,11 +1,16 @@
 <template name="start">
-<div id="start">
-  <div class="container">
-    <div class="title_block">
-      <img src="/img/watermark.png" class="img-responsive" alt="">
-      <h3>{{quote.text}}Привет ребята</h3>
-      <p>{{quote.author}}</p>
+  <div id="start" style="background-image: url('{{bgimage.url}}')">
+    <div class="container">
+      <div class="title_block">
+        <span class="fa fa-picture-o edit-bgimage"></span>
+        <span class="fa fa-pencil edit-start"></span>
+        <img src="/img/watermark.png" class="img-responsive" alt="">
+        <h3>{{startblock.quote}}</h3>
+        <p>{{startblock.author}}</p>
+      </div>
     </div>
   </div>
-</div>
+  <div class="add-bg-img">
+    <input type="file" id="add-bg-img">
+  </div>
 </template>

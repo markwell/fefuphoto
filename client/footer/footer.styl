@@ -4,7 +4,9 @@
   background-color: #575757;
   text-align: center;
   padding: 20px 0;
-
+  &:hover
+    .edit-footer
+      opacity 1
 .copy_txt
   color: #fff;
   font-family: "RalewayRegular", sans-serif;
@@ -13,3 +15,10 @@
     padding-top: 70px
   @media screen and (max-width: 500px)
     padding-top: 40px
+.edit-footer
+  position relative
+  font-size 1.5em
+  opacity 0
+  transition opacity .3s
+  cursor pointer
+  color gray

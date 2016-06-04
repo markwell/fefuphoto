@@ -14,16 +14,14 @@
           <div class="collapse navbar-collapse navbar-right" id="top_menu">
             <ul class="menu">
               {{#each menu}}
-                <!-- <li><a data-href="#{{href}}" class="go_to">{{name}}</a></li> -->
-                <li><a href="/#{{href}}" class="go_to">{{name}}</a></li>
+              <!-- <li><a data-href="#{{href}}" class="go_to">{{name}}</a></li> -->
+              <li><a href="/#{{href}}" class="go_to">{{name}}</a></li>
               {{/each}}
-                <li>{{>loginButtons}}</li>
+              {{> loginButtons}}
             </ul>
           </div>
         </div>
       </div>
     </nav>
-
   </header>
-
 </template>

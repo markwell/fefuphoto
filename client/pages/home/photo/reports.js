@@ -22,7 +22,6 @@ Template.reports.events({
     e.preventDefault();
   },
   'click .edit-report': function(e, template) {
-    console.log(123);
     CRUD({
       collection: Reports,
       id: e.target.dataset.id,
