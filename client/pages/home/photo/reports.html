@@ -26,9 +26,12 @@
               </div>
             </div>
         {{/sortable}}
-        <div class="col-md-4 col-sm-6 add-report">
-          Добавить Фотоотчет
-        </div>
+
+        {{#if login}}
+            <div class="col-md-4 col-sm-6 add-report">
+              Добавить Фотоотчет
+            </div>
+        {{/if}}
       </div>
 
       <div class="row next_button">

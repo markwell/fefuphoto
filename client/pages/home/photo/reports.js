@@ -8,6 +8,9 @@ Template.reports.onCreated(function() {
 Template.reports.helpers({
   reports: function() {
     return Reports.find();
+  },
+  login: function() {
+    return Meteor.userId();
   }
 });
 
