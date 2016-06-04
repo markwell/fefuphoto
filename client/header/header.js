@@ -9,13 +9,6 @@ Template.header.helpers({
 
 Template.header.events({
 
-  'click .go_to': function(e) {
-    href = $(e.target).data('href')
-    if($(href).length) {
-      $('html, body').animate({ scrollTop: $(href).offset().top }, 500);
-      $('#header .menu_btn').trigger('click');
-    }
-  }
 
 
 });
