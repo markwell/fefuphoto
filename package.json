@@ -2,9 +2,23 @@
   "name": "fefuphoto",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "start": "export MONGO_URL=mongodb://localhost:27017/fefuphoto; meteor;"
   },
   "dependencies": {
     "meteor-node-stubs": "~0.2.0"
+  },
+  "_mc": {
+    "app": "fefuphoto",
+    "db": "fefuphoto",
+    "port": "3000",
+    "remote": {
+      "domain": "http://fefuphoto.ru",
+      "ip": "188.120.228.227",
+      "user": "mrmasly",
+      "db": "fefuphoto",
+      "path": "meteor/fefuphoto",
+      "port": "14000",
+      "service": "meteor-fefuphoto"
+    }
   }
 }
