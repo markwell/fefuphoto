@@ -31,7 +31,6 @@ cfs:upload-http@0.0.20
 cfs:worker@0.1.4
 check@1.2.1
 coffeescript@1.0.17
-dbarrett:dropzonejs@4.2.1
 dburles:mongo-collection-instances@0.3.4
 ddp@1.2.5
 ddp-client@1.2.7
@@ -57,7 +56,7 @@ iron:core@1.0.11
 iron:dynamic-template@1.0.12
 iron:layout@1.0.12
 iron:location@1.0.11
-iron:middleware-stack@1.0.11
+iron:middleware-stack@1.1.0
 iron:router@1.0.12
 iron:url@1.0.11
 jquery@1.11.8

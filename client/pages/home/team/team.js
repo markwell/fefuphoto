@@ -18,7 +18,6 @@ Template.team.onRendered(function() {
   setTimeout(function() {
     $('[title]').tooltip();
   }, 500);
-  var Dropzone = require("dropzone");
 });
 
 Template.team.events({

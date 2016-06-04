@@ -30,6 +30,5 @@ cfs:standard-packages
 cfs:filesystem
 rubaxa:sortable
 coffeescript
-dbarrett:dropzonejs
 
 random
