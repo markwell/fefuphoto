@@ -2,8 +2,10 @@
   <div id="start" style="background-image: url('{{bgimage.url}}')">
     <div class="container">
       <div class="title_block">
+        {{#if login}}
         <span class="fa fa-picture-o edit-bgimage"></span>
         <span class="fa fa-pencil edit-start"></span>
+        {{/if}}
         <img src="/img/watermark.png" class="img-responsive" alt="">
         <h3>{{startblock.quote}}</h3>
         <p>{{startblock.author}}</p>

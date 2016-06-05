@@ -11,7 +11,8 @@ Template.start.helpers({
   },
   startblock: function() {
     return Content.findOne('startblock');
-  }
+  },
+  login: function() {return CHECKLOGIN()}
 });
 
 Template.start.events({

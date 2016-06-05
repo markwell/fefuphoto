@@ -12,13 +12,16 @@
         <figure class="col-sm-4" itemprop="associatedMedia">
           <a href="{{url}}" data-size="300x200">
             <img src="{{url}}" alt="Image description" class="img-responsive" />
+            {{#if login}}
             <i class="fa fa-times remove" data-id="{{_id}}"></i>
+            {{/if}}
           </a>
         </figure>
         {{/each}}
       </div>
     </div>
   </div>
+  {{#if login}}
   <div id="dropzone-block">
     <form action="/file-upload" class="dropzone">
       <div class="fallback">
@@ -26,7 +29,7 @@
       </div>
     </form>
   </div>
-
+  {{/if}}
     {{> fullImage}}
-  
+
 </template>

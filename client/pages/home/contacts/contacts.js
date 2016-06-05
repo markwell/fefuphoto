@@ -17,7 +17,9 @@ Template.contacts.helpers({
   // проверки на тип
   isPhone: function(type) { return (type == 'phone') ? true : false; },
   isMail: function(type) { return (type == 'envelope-o') ? true : false; },
-  isNet: function(type) { return (type != 'phone' && type != 'envelope-o') ? true : false; }
+  isNet: function(type) { return (type != 'phone' && type != 'envelope-o') ? true : false; },
+  //проверяем права
+  login: function() {return CHECKLOGIN()}
 });
 
 

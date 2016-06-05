@@ -8,7 +8,9 @@
         </div>
         <div class="about_text">
           <p>
+            {{#if login}}
             <span class="fa fa-pencil edit-about" data-id="{{_id}}"></span>
+            {{/if}}
             {{text.text}}
           </p>
         </div>

@@ -12,7 +12,8 @@ Template.team.onCreated(function() {
 Template.team.helpers({
   people: function() {
     return Team.find();
-  }
+  },
+  login: function() {return CHECKLOGIN()}
 });
 
 Template.team.onRendered(function() {

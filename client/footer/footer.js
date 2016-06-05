@@ -8,7 +8,8 @@ Template.footer.helpers({
   copyright: function() {
     return Content.findOne('copyright');
   },
-  logo: '/img/watermark.png'
+  logo: '/img/watermark.png',
+  function() {return CHECKLOGIN()}
 })
 
 Template.footer.events({

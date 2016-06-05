@@ -9,11 +9,8 @@ Template.reports.helpers({
   reports: function() {
     return Reports.find();
   },
-  login: function() {
-    return Meteor.userId();
-  }
+  login: function() {return CHECKLOGIN()}
 });
-
 
 Template.reports.events({
   'click .remove-report': function(e, template) {
