@@ -16,6 +16,8 @@ Template.header.onRendered(function(e) {
   setTimeout(function(){
          $('.dropdown-toggle').text('Вход');
          $('#login-buttons-password').text('Вход');
+         $('#login-username').attr("placeholder", "Ваш логин");
+         $('#login-password').attr("placeholder", "Ваш пароль");
 
      }, 300);
 });
