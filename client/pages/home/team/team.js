@@ -1,5 +1,6 @@
 Template.team.onCreated(function() {
   this.fields = [
+    {field:'avatar', type: 'file', title: 'Фото'},
     {field:'name', type: 'text', title: 'Имя'},
     {field:'post', type: 'text', title: 'Должность'},
     {field:'description', type: 'textarea', title: 'Описание'},
@@ -30,6 +31,13 @@ Template.team.events({
   'click .remove-person': function(e, template) {
     var id = e.target.dataset.id;
     Team.remove(id);
+    e.preventDefault();
+  },
+
+  // добавление фотографии
+  'click .photo-person': function(e, template) {
+    var id = e.target.dataset.id;
+    // Team.remove(id);
     e.preventDefault();
   },
 

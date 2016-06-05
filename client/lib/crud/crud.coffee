@@ -36,6 +36,8 @@ Params = {}
     content += '<label>'+title+'</label>'
     if type == 'text'
       content += '<input class="form-control" type="text" name="'+field+'" value="'+val+'">'
+    if type == 'file'
+      content += '<input type="file" name="'+field+'" value="'+val+'">'
     if type == 'date'
       content += '<input class="form-control" type="date" name="'+field+'" value="'+val+'">'
     else if type == 'textarea'
@@ -63,8 +65,6 @@ Template.crud.events
     data = $(e.target).serializeArray()
     update = {}
     for one in data
-      if Params.save?
-        one.value = Params.save one.value
       update[one.name] = one.value
 
     Params.collection.upsert {_id: Params.id}, {$set: update}, (err, res) ->

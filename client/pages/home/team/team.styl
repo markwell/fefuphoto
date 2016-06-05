@@ -13,6 +13,7 @@
     .remove-person
     .move-block
     .edit-person
+    .photo-person
       position absolute
       font-size 1.5em
       right 5px
@@ -28,10 +29,16 @@
     .move-block
       color #2aa6e0
       top 35px
+    .photo-person
+      color rgba(150, 150, 150, 0.6);
+      left 0px
+      top -25px
+      z-index 30
     &:hover
       .edit-person
       .remove-person
       .move-block
+      .photo-person
         opacity 1
     h4
       font-family: "RalewayBold", sans-serif;
