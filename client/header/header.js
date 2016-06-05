@@ -7,6 +7,13 @@ Template.header.helpers({
   ]
 });
 
+
 Template.header.events({
 
+});
+
+Template.header.onRendered(function(e) {
+  setTimeout(function(){
+         $('.dropdown-toggle').text('Вход');
+     }, 300);
 });
