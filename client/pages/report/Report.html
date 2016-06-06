@@ -1,5 +1,5 @@
 <template name="Report">
-  <div class="container-fluid" id="report">
+  <div class="container" id="report">
     <div class="row">
       <div class="section_title">
         <i class="fa fa-camera-retro"></i>
@@ -9,8 +9,8 @@
       </div>
       <div class="row my-gallery">
         {{#each photos}}
-        <figure class="col-sm-4" itemprop="associatedMedia">
-          <a href="{{url}}" data-size="300x200">
+        <figure class="img-block col-md-4 col-sm-6 col-xs-6" itemprop="associatedMedia">
+          <a href="{{url}}" data-size="900x600">
             <img src="{{url}}" alt="Image description" class="img-responsive" />
             {{#if login}}
             <i class="fa fa-times remove" data-id="{{_id}}"></i>
@@ -30,6 +30,5 @@
     </form>
   </div>
   {{/if}}
-    {{> fullImage}}
-
+{{> pswp}}
 </template>

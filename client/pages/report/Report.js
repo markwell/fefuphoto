@@ -33,16 +33,6 @@ Template.Report.events({
     }
   }
 });
-
 Template.Report.onRendered(function(e) {
-  // $('.dropzone').dropzone({
-  //   accept: function(file, done) {
-  //     file = new FS.File(file);
-  //     file.report = ReportId;
-  //     Images.insert(file, function (err, res) {
-  //       done();
-  //     });
-  //   }
-  // });
   initPhotoSwipeFromDOM('.my-gallery');
 });

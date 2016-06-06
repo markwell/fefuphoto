@@ -23,7 +23,8 @@ twbs:bootstrap
 fortawesome:fontawesome
 stolinski:stylus-multi
 iron:router
-spectrum:photoswipe
+#spectrum:photoswipe
+loftsteinn:photoswipe
 veto44:bootstrap-select
 
 cfs:standard-packages
