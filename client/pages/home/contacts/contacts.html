@@ -12,9 +12,11 @@
           <div id="contacts">
             {{#sortable items=contacts dataIdAttr="data-id" handle=".move-block" animation="200" ghostClass="sortable-ghost" options=sortOptions}}
               <div class="col-md-3 col-xs-6 contact">
+                {{#if login}}
                 <i class="fa fa-arrows move-block" aria-hidden="true"></i>
                 <i class="fa fa-times remove-contact" data-id="{{_id}}"></i>
                 <i class="fa fa-pencil edit-contact" data-id="{{_id}}"></i>
+                {{/if}}
                 <i class="fa fa-{{type}}"></i><br>
                 <span>{{name}}</span><br>
                 <div class="href">
@@ -30,9 +32,11 @@
                 </div>
               </div>
             {{/sortable}}
+            {{#if login}}
             <div class="col-md-3 col-xs-6 add-contact">
               Добавить контакт
             </div>
+            {{/if}}
           </div>
         </div>
       </div>
