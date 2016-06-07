@@ -18,7 +18,9 @@
                 {{/if}}
                 <!-- <span class="fa fa-camera photo-person" data-id="{{_id}}"></span> -->
                 <!-- <div class="photo embed-responsive embed-responsive-4by3" style="background-image:url({{img}})"></div> -->
-                <div class="photo embed-responsive embed-responsive-4by3" style="background-image:url('/img/team-4.jpg')"></div>
+                {{#with photo avatar}}
+                  <div class="photo embed-responsive embed-responsive-4by3" style="background-image:url('{{url}}')"></div>
+                {{/with}}
                 <h4>{{name}}</h4>
                 <span>{{post}}</span>
                 <br>

@@ -1,7 +1,9 @@
 Params = {}
+Files = {}
 
 @CRUD = (params) ->
 
+  Files = {}
   Params = params
 
   # если нет коллекции
@@ -37,7 +39,7 @@ Params = {}
     if type == 'text'
       content += '<input class="form-control" type="text" name="'+field+'" value="'+val+'">'
     if type == 'file'
-      content += '<input type="file" name="'+field+'" value="'+val+'">'
+      content += '<input type="file" name="'+field+'" data-id="'+params.id+'">'
     if type == 'date'
       content += '<input class="form-control" type="date" name="'+field+'" value="'+val+'">'
     else if type == 'textarea'
@@ -58,14 +60,33 @@ Params = {}
   $('#crud').modal().find('.modal-body').html(content)
 
 
+$(document).on 'change', '#crud input[type="file"]', (e) ->
+  id = Params.id
+  name = e.target.name
+  console.log name
+  file = e.target.files[0]
+  file = new FS.File file
+  file.id = id
+  CrudFiles.insert file, (err, res) ->
+    if err then return no
+    Files[name] = res._id
+
+
+
 
 Template.crud.events
   'submit form': (e) ->
+
     e.preventDefault()
+
+
     data = $(e.target).serializeArray()
     update = {}
     for one in data
       update[one.name] = one.value
+
+    for one, val of Files
+      update[one] = val
 
     Params.collection.upsert {_id: Params.id}, {$set: update}, (err, res) ->
       if err then $('#crud .error').html('Ошибка!')

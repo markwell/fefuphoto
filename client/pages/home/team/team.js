@@ -13,7 +13,8 @@ Template.team.helpers({
   people: function() {
     return Team.find();
   },
-  login: function() {return CHECKLOGIN()}
+  login: function() {return CHECKLOGIN()},
+  photo: function(id) { return CrudFiles.findOne(id); }
 });
 
 Template.team.onRendered(function() {
