@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="row">
-          {{#sortable items=people dataIdAttr="data-id" handle=".move-block" animation="200" ghostClass="sortable-ghost" options=sortOptions}}
+          {{#sortable items=team dataIdAttr="data-id" handle=".move-block" animation="200" ghostClass="sortable-ghost" options=sortOptions sortField='order'}}
             <div class="col-md-3 col-sm-6">
               <div class="person">
                 {{#if login}}
@@ -26,7 +26,7 @@
                 <br>
                 <p>{{description}}</p>
                 <div class="team-btns">
-                  {{#each nets}}
+                  {{#each getNets net}}
                     <a href="{{href}}" target="_blank" title="{{href}}">
                       <button class="soc_btn_gray">
                         <i class="fa fa-{{type}}"></i>

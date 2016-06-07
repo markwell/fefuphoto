@@ -29,8 +29,17 @@ Files = {}
     title = f.title ? ''
     options = f.options ? []
 
+
+
     if item
-      val = item[field] ? ''
+      if field.indexOf('.')+1
+        f = field.split '.'
+        if item? and item[f[0]]? and item[f[0]][f[1]]?
+          val = item[f[0]][f[1]]
+        else
+          val = ''
+      else
+        val = item[field] ? ''
     else
       val = ''
 
@@ -80,13 +89,12 @@ Template.crud.events
 
 
     data = $(e.target).serializeArray()
+
     update = {}
     for one in data
       update[one.name] = one.value
-
     for one, val of Files
       update[one] = val
-
     Params.collection.upsert {_id: Params.id}, {$set: update}, (err, res) ->
       if err then $('#crud .error').html('Ошибка!')
       else $('#crud').delay(100).queue -> $(this).modal('hide').dequeue()

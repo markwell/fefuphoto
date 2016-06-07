@@ -5,16 +5,31 @@ Template.team.onCreated(function() {
     {field:'post', type: 'text', title: 'Должность'},
     {field:'description', type: 'textarea', title: 'Описание'},
     {field:'net.vk', type: 'text', title: 'Ссылка vk.com'},
-    {field:'net.instagram', type: 'text', title: 'Ссылка instagram'}
+    {field:'net.instagram', type: 'text', title: 'Ссылка instagram'},
+    {field:'net.facebook', type: 'text', title: 'Ссылка facebook'},
+    {field:'net.twitter', type: 'text', title: 'Ссылка twitter'},
   ]
 });
 
 Template.team.helpers({
-  people: function() {
-    return Team.find();
+  team: function() {
+    return Team.find({}, {sort: { order: 1 }});
   },
   login: function() {return CHECKLOGIN()},
-  photo: function(id) { return CrudFiles.findOne(id); }
+  photo: function(id) { return CrudFiles.findOne(id); },
+  // console.log(Team.find());
+  // networks: function(id) { return Team.findOne(id); }
+  getNets: function(nets) {
+    res = [];
+    for(net in nets) {
+      val = nets[net];
+      if (val) {
+        res.push({href: val, type: net});
+      }
+    }
+
+    return res;
+  }
 });
 
 Template.team.onRendered(function() {
