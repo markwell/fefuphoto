@@ -11,12 +11,9 @@ Template.Report.helpers({
 
 Template.Report.events({
   'click .remove': function(e){
-
-    if(confirm("Удалить?")) {
       var id = e.target.dataset.id;
       Images.remove(id, function(err,res){
       });
-    }
   },
   'mouseover .dropzone': function(e) {
     ReportId = this.id;

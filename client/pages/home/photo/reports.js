@@ -1,6 +1,8 @@
 Template.reports.onCreated(function() {
   this.fields = [
     {field: 'title', type: 'text', 'title': 'Название'},
+    {field: 'description', type: 'textarea', 'title': 'Описание'},
+    {field: 'photographer', type: 'text', 'title': 'Фотограф'},
     {field: 'date', type: 'date', 'title': 'Дата'}
   ];
 });
