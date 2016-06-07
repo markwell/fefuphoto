@@ -63,7 +63,6 @@ Files = {}
 $(document).on 'change', '#crud input[type="file"]', (e) ->
   id = Params.id
   name = e.target.name
-  console.log name
   file = e.target.files[0]
   file = new FS.File file
   file.id = id

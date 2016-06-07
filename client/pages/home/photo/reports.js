@@ -1,5 +1,6 @@
 Template.reports.onCreated(function() {
   this.fields = [
+    {field:'avatar', type: 'file', title: 'Обложка фотоотчета'},
     {field: 'title', type: 'text', 'title': 'Название'},
     {field: 'description', type: 'textarea', 'title': 'Описание'},
     {field: 'photographer', type: 'text', 'title': 'Фотограф'},
@@ -11,6 +12,7 @@ Template.reports.helpers({
   reports: function() {
     return Reports.find();
   },
+  photo: function(id) { return CrudFiles.findOne(id); },
   login: function() {return CHECKLOGIN()}
 });
 
