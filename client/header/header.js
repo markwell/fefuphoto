@@ -20,5 +20,5 @@ Template.header.onRendered(function(e) {
     $('#login-buttons-password').text('Вход');
     $('#login-username').attr("placeholder", "Ваш логин");
     $('#login-password').attr("placeholder", "Ваш пароль");
-  }, 500);
+  }, 1500);
 });
