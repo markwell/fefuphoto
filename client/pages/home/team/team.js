@@ -8,8 +8,14 @@ Template.team.onCreated(function() {
     {field:'net.instagram', type: 'text', title: 'Ссылка instagram'},
     {field:'net.facebook', type: 'text', title: 'Ссылка facebook'},
     {field:'net.twitter', type: 'text', title: 'Ссылка twitter'},
+    {field:'order', type: 'text', title: 'Оставьте пустым'},
   ]
 });
+// Template.typeDefinition.helpers({
+//   types: function () {
+//     return Types.find({}, { sort: { order: 1 } });
+//   }
+// });
 
 Template.team.helpers({
   team: function() {

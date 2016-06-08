@@ -10,3 +10,4 @@
 //         }
 //     });
 // }
+// Sortable.collections = ['types'];
