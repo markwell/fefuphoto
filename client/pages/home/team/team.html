@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="row">
-          {{#sortable items=team handle=".move-block" animation="200"}}
+          {{#each team}}
             <div class="col-md-3 col-sm-6">
               <div class="person">
                 {{#if login}}
@@ -34,7 +34,7 @@
                 </div>
               </div>
             </div>
-          {{/sortable}}
+          {{/each}}
           {{#if login}}
           <div class="col-md-3 col-sm-6 add-person">
             Добавить Участника

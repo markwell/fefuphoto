@@ -11,7 +11,7 @@ Template.contacts.onCreated(function() {
 Template.contacts.helpers({
   // получаем контакты
   contacts: function() {
-    return Contacts.find();
+    return Contacts.find({}, {sort: {sort: 1}});
   },
   title: "Контакты",
   // проверки на тип
@@ -52,6 +52,25 @@ Template.contacts.events({
       fields: template.fields
     });
   }
+});
+
+Template.contacts.onRendered(function() {
+  setTimeout(function() {
+    // Sortable = require('../../lib/sortable.js');
+    contacts = $('#contacts-list').get(0);
+    s = new Sortable(contacts, {
+      handle: '.move-block',
+      animation: 150,
+      onEnd: function() {
+        var i = 0;
+        $("#contacts-list").children().each(function() {
+          id = $(this).data('id');
+          Contacts.update(id,{$set: {sort: i}});
+          i++;
+        });
+      }
+    });
+  }, 1000);
 });
 
 

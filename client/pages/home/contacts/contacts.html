@@ -9,9 +9,9 @@
       </div>
       <div class="row">
         <div class="contacts_inner">
-          <div id="contacts">
-            {{#sortable items=contacts dataIdAttr="data-id" handle=".move-block" animation="200" ghostClass="sortable-ghost" options=sortOptions}}
-              <div class="col-md-3 col-xs-6 contact">
+          <div id="contacts-list">
+            {{#each contacts}}
+              <div class="col-md-3 col-xs-6 contact" data-id="{{_id}}">
                 {{#if login}}
                 <i class="fa fa-arrows move-block" aria-hidden="true"></i>
                 <i class="fa fa-times remove-contact" data-id="{{_id}}"></i>
@@ -31,7 +31,7 @@
                   {{/if}}
                 </div>
               </div>
-            {{/sortable}}
+            {{/each}}
             {{#if login}}
             <div class="col-md-3 col-xs-6 add-contact">
               Добавить контакт
