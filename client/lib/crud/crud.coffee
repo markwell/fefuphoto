@@ -98,12 +98,13 @@ Template.crud.events
       if err then $('#crud .error').html('Ошибка!')
       else $('#crud').delay(100).queue -> $(this).modal('hide').dequeue()
     #ФУНКЦИЯ ПРИСВАИВАНИЯ order
-    obj = Params.collection.find().fetch()
-    max = 0
-    for key in obj
-      if max < key.order
-        max = key.order
-    newOrder = max + 1
-    Params.collection.update(Params.id, {
-      $set: { "order": newOrder },
-    });
+    if Params.collection._name == 'reports' or Params.collection._name == 'contacts' or Params.collection._name == 'team'
+      obj = Params.collection.find().fetch()
+      max = 0
+      for key in obj
+        if max < key.order
+          max = key.order
+      newOrder = max + 1
+      Params.collection.update(Params.id, {
+        $set: { "order": newOrder },
+      });

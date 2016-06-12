@@ -10,32 +10,34 @@
       </div>
 
       <div class="row">
-        {{#each reports}}
-            <div class="col-md-4 col-sm-6 col-xs-6 p0">
-              <div class="report-block">
+        <div id="reports-list">
+          {{#each reports}}
+          <div class="col-md-4 col-sm-6 col-xs-6 p0" data-id="{{_id}}">
+            <div class="report-block">
               {{#with photo avatar}}
               <img src="{{url}}" alt="" class="img-responsive">
               {{/with}}
-
-                {{#if login}}
-                <span class="fa fa-arrows move-block" aria-hidden="true"></span>
-                <span class="fa fa-pencil edit-report"  data-id="{{_id}}"></span>
-                <span class="fa fa-times remove-report" data-id="{{_id}}"></span>
-                {{/if}}
-                <a href="/report/{{_id}}" class="image-wrap">
-                  <div class="work-descr">
-                    <h4>{{title}}</h4>
-                    <p>{{description}}</p>
-                    <p>{{date}}</p>
-                  </div>
-                </a>
-              </div>
-              </div>
-        {{/each}}
-        {{#if login}}
-            <div class="col-md-4 col-sm-6 col-xs-6 add-report">
-              Добавить Фотоотчет
+              {{#if login}}
+              <span class="fa fa-arrows move-block" aria-hidden="true"></span>
+              <span class="fa fa-pencil edit-report"  data-id="{{_id}}"></span>
+              <span class="fa fa-times remove-report" data-id="{{_id}}"></span>
+              {{/if}}
+              <a href="/report/{{_id}}" class="image-wrap">
+                <div class="work-descr">
+                  <h4>{{title}}</h4>
+                  <p>{{description}}</p>
+                  <p>{{date}}</p>
+                </div>
+              </a>
             </div>
+          </div>
+          {{/each}}
+        </div>
+
+        {{#if login}}
+        <div class="col-md-4 col-sm-6 col-xs-6 add-report">
+          Добавить Фотоотчет
+        </div>
         {{/if}}
       </div>
 
