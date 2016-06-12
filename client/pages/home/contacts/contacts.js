@@ -56,7 +56,6 @@ Template.contacts.events({
 
 Template.contacts.onRendered(function() {
   setTimeout(function() {
-    // Sortable = require('../../lib/sortable.js');
     contacts = $('#contacts-list').get(0);
     s = new Sortable(contacts, {
       handle: '.move-block',

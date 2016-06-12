@@ -97,7 +97,7 @@ Template.crud.events
     Params.collection.upsert {_id: Params.id}, {$set: update}, (err, res) ->
       if err then $('#crud .error').html('Ошибка!')
       else $('#crud').delay(100).queue -> $(this).modal('hide').dequeue()
-    #ФУНКЦИЯ ДОБАВЛЕНИЯ НОМЕРА order
+    #ФУНКЦИЯ ПРИСВАИВАНИЯ order
     obj = Params.collection.find().fetch()
     max = 0
     for key in obj

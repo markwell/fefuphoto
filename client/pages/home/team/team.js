@@ -11,15 +11,10 @@ Template.team.onCreated(function() {
     // {field:'order', type: 'text', title: 'Оставьте пустым'}
   ]
 });
-// Template.typeDefinition.helpers({
-//   types: function () {
-//     return Types.find({}, { sort: { order: 1 } });
-//   }
-// });
 
 Template.team.helpers({
   team: function() {
-    return Team.find({}, {sort: { order: 1 }});
+    return Team.find({}, {sort: {order: 1}});
   },
   login: function() {return CHECKLOGIN()},
   photo: function(id) { return CrudFiles.findOne(id); },
@@ -41,6 +36,19 @@ Template.team.helpers({
 Template.team.onRendered(function() {
   setTimeout(function() {
     $('[title]').tooltip();
+    team = $('#team-list').get(0);
+    s = new Sortable(team, {
+      handle: '.move-block',
+      animation: 150,
+      onEnd: function() {
+        var i = 0;
+        $("#team-list").children().each(function() {
+          id = $(this).data('id');
+          Team.update(id,{$set: {order: i}});
+          i++;
+        });
+      }
+    });
   }, 500);
 });
 
