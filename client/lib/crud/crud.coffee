@@ -98,7 +98,7 @@ Template.crud.events
       if err then $('#crud .error').html('Ошибка!')
       else $('#crud').delay(100).queue -> $(this).modal('hide').dequeue()
     #ФУНКЦИЯ ПРИСВАИВАНИЯ order
-    if Params.collection._name == 'reports' or Params.collection._name == 'contacts' or Params.collection._name == 'team'
+    if (Params.collection._name == 'reports' or Params.collection._name == 'contacts' or Params.collection._name == 'team') and (Params.title == 'Создать новый фотоотчет' or Params.title == 'Добавить нового участника' or Params.title == 'Создать новый контакт')
       obj = Params.collection.find().fetch()
       max = 0
       for key in obj
