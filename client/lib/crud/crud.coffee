@@ -2,7 +2,6 @@ Params = {}
 Files = {}
 
 @CRUD = (params) ->
-
   Files = {}
   Params = params
 
@@ -98,3 +97,13 @@ Template.crud.events
     Params.collection.upsert {_id: Params.id}, {$set: update}, (err, res) ->
       if err then $('#crud .error').html('Ошибка!')
       else $('#crud').delay(100).queue -> $(this).modal('hide').dequeue()
+    #ФУНКЦИЯ ДОБАВЛЕНИЯ НОМЕРА order
+    obj = Params.collection.find().fetch()
+    max = 0
+    for key in obj
+      if max < key.order
+        max = key.order
+    newOrder = max + 1
+    Params.collection.update(Params.id, {
+      $set: { "order": newOrder },
+    });

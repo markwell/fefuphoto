@@ -3,7 +3,7 @@ Template.contacts.onCreated(function() {
   this.fields = [
     {field: 'type', type: 'select', options: NETS, title: 'Тип'},
     {field: 'name', type: 'text', title: 'Название'},
-    {field: 'href', type: 'text', title: 'Ссылка или номер'}
+    {field: 'href', type: 'text', title: 'Ссылка или номер'},
   ];
 })
 
@@ -11,7 +11,7 @@ Template.contacts.onCreated(function() {
 Template.contacts.helpers({
   // получаем контакты
   contacts: function() {
-    return Contacts.find({}, {sort: {sort: 1}});
+    return Contacts.find({}, {sort: {order: 1}});
   },
   title: "Контакты",
   // проверки на тип
@@ -65,7 +65,7 @@ Template.contacts.onRendered(function() {
         var i = 0;
         $("#contacts-list").children().each(function() {
           id = $(this).data('id');
-          Contacts.update(id,{$set: {sort: i}});
+          Contacts.update(id,{$set: {order: i}});
           i++;
         });
       }
