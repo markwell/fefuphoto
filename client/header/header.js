@@ -6,19 +6,3 @@ Template.header.helpers({
     {href:"contacts", name:"Контакты"}
   ]
 });
-
-
-Template.header.events({
-
-});
-
-Template.header.onRendered(function(e) {
-  setTimeout(function(){
-    if ($('.dropdown-toggle').text() == 'Sign in / Join ') {
-      $('.dropdown-toggle').text('Вход');
-    }
-    $('#login-buttons-password').text('Вход');
-    $('#login-username').attr("placeholder", "Ваш логин");
-    $('#login-password').attr("placeholder", "Ваш пароль");
-  }, 1500);
-});

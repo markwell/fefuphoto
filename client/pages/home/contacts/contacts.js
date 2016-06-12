@@ -35,7 +35,6 @@ Template.contacts.events({
 
   // радактирование контакта
   'click .edit-contact': function(e, template) {
-    console.log(template);
     CRUD({
       collection: Contacts,
       title: "Редактировать контакт",

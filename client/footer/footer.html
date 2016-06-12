@@ -3,9 +3,9 @@
     <div class="copyright_block">
       <div class="container">
         <div class="row">
-        <div class="col-md-2 col-sm-4 col-xs-4 col-md-offset-2">
-          <img src="{{logo}}" class="img-responsive" alt="logo">
-        </div>
+          <div class="col-md-2 col-sm-4 col-xs-4 col-md-offset-2">
+            <img src="{{logo}}" class="img-responsive" alt="logo" data-toggle="modal" data-target="#authModal">
+          </div>
           <div class="col-md-6 col-sm-6 col-xs-6">
             <div class="copy_txt">
               {{#if login}}
@@ -13,9 +13,11 @@
               {{/if}}
               {{copyright.text}}
             </div>
+
           </div>
         </div>
       </div>
     </div>
   </footer>
+  {{> authModal}}
 </template>
