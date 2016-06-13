@@ -91,7 +91,7 @@ Template.crud.events
       if err then $('#crud .error').html('Ошибка!')
       else $('#crud').delay(100).queue -> $(this).modal('hide').dequeue()
 
-    #ФУНКЦИЯ ПРИСВАИВАНИЯ order при добавлении
+    #ФУНКЦИЯ ПРИСВАИВАНИЯ ORDER ПРИ ДОБАВЛЕНИИ
     if Params.allowEditOrder
       obj = Params.collection.find().fetch()
       max = 0
