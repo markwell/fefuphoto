@@ -18,9 +18,13 @@
               <span class="fa fa-times remove-person" data-id="{{_id}}"></span>
               {{/if}}
               {{#with photo avatar}}
-              <div class="photo embed-responsive embed-responsive-4by3" style="background-image:url('{{url}}')"></div>
+              <a href="/member/{{_id}}">
+                <div class="photo embed-responsive embed-responsive-4by3" style="background-image:url('{{url}}')"></div>
+              </a>
               {{/with}}
-              <h4>{{name}}</h4>
+              <a href="/member/{{_id}}">
+                <h4>{{name}}</h4>
+              </a>
               <span>{{post}}</span>
               <br>
               <p>{{description}}</p>
@@ -44,5 +48,5 @@
         {{/if}}
       </div>
     </div>
-</section>
+  </section>
 </template>

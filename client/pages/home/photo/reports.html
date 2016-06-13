@@ -1,14 +1,12 @@
 <template name="reports">
   <section id="reports">
     <div class="container-fluid">
-
       <div class="row">
         <div class="section_title">
           <i class="fa fa-camera-retro"></i>
           <h3>Фотоотчеты</h3>
         </div>
       </div>
-
       <div class="row">
         <div id="reports-list">
           {{#each reports}}
@@ -34,18 +32,16 @@
           </div>
           {{/each}}
         </div>
-
         {{#if login}}
         <div class="col-md-4 col-sm-6 col-xs-6 add-report">
           Добавить Фотоотчет
         </div>
         {{/if}}
       </div>
-
       <!-- <div class="row next_button">
-        <button type="button" class="my_btn btn_md" data-toggle="collapse" data-target="#collapseReports">Смотреть далее</button>
-      </div> -->
+      <button type="button" class="my_btn btn_md" data-toggle="collapse" data-target="#collapseReports">Смотреть далее</button>
+    </div> -->
 
-    </div>
-  </section>
+  </div>
+</section>
 </template>

@@ -3,7 +3,7 @@ Template.reports.onCreated(function() {
     {field:'avatar', type: 'file', title: 'Обложка фотоотчета'},
     {field: 'title', type: 'text', 'title': 'Название'},
     {field: 'description', type: 'textarea', 'title': 'Описание'},
-    {field: 'photographer', type: 'text', 'title': 'Фотограф'},
+    {field: 'photographer', type: 'select', 'title': 'Фотограф'},
     {field: 'date', type: 'date', 'title': 'Дата'}
   ];
 });

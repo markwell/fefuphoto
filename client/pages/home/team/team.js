@@ -65,13 +65,6 @@ Template.team.events({
     e.preventDefault();
   },
 
-  // добавление фотографии
-  'click .photo-person': function(e, template) {
-    var id = e.target.dataset.id;
-    // Team.remove(id);
-    e.preventDefault();
-  },
-
   // добавление участника
   'click .add-person': function(e, template) {
     CRUD({

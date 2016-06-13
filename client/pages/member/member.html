@@ -1,0 +1,61 @@
+<template name="member">
+  <section class="team_s" id="team">
+    <div class="container">
+      <div class="row">
+        <div class="section_title">
+          <i class="fa fa-user"></i>
+          <h3>Участник</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="team_item">
+          <div class="col-md-3 col-md-offset-1 col-xs-5">
+            {{#with photo member.avatar}}
+            <img src="{{url}}" class="img-responsive" alt="">
+            {{/with}}
+          </div>
+          <div class="col-md-6">
+            <h4>{{member.name}}</h4>
+            <span>{{member.post}}</span><br>
+            <p>{{member.description}}</p>
+            <div class="team_btns">
+              {{#each getNets member.net}}
+              <a href="{{href}}" target="_blank" title="{{href}}">
+                <button class="soc_btn_gray">
+                  <i class="fa fa-{{type}}"></i>
+                </button>
+              </a>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="section_title">
+          <i class="fa fa-camera-retro"></i>
+          <h3>Фотоотчеты участника</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div id="reports-list">
+          {{#each reports}}
+          <div class="col-md-4 col-sm-6 col-xs-6 p0" data-id="{{_id}}">
+            <div class="report-block">
+              {{#with photo avatar}}
+              <img src="{{url}}" alt="" class="img-responsive">
+              {{/with}}
+              <a href="/report/{{_id}}" class="image-wrap">
+                <div class="work-descr">
+                  <h4>{{title}}</h4>
+                  <p>{{description}}</p>
+                  <p>{{date}}</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

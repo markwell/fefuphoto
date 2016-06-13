@@ -10,6 +10,14 @@ Router.route('/report/:id', function() {
   });
 });
 
+Router.route('/member/:id', function() {
+  this.render('member', {
+    data: {
+      id: this.params.id
+    }
+  });
+});
+
 Router._scrollToHash = function(hash) {
 
   var section = $(hash);
