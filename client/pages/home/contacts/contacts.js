@@ -48,7 +48,8 @@ Template.contacts.events({
     CRUD({
       collection: Contacts,
       title: 'Создать новый контакт',
-      fields: template.fields
+      fields: template.fields,
+      allowEditOrder: true
     });
   }
 });

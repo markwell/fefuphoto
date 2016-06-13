@@ -78,17 +78,10 @@ $(document).on 'change', '#crud input[type="file"]', (e) ->
     if err then return no
     Files[name] = res._id
 
-
-
-
 Template.crud.events
   'submit form': (e) ->
-
     e.preventDefault()
-
-
     data = $(e.target).serializeArray()
-
     update = {}
     for one in data
       update[one.name] = one.value
@@ -97,8 +90,9 @@ Template.crud.events
     Params.collection.upsert {_id: Params.id}, {$set: update}, (err, res) ->
       if err then $('#crud .error').html('Ошибка!')
       else $('#crud').delay(100).queue -> $(this).modal('hide').dequeue()
-    #ФУНКЦИЯ ПРИСВАИВАНИЯ order
-    if (Params.collection._name == 'reports' or Params.collection._name == 'contacts' or Params.collection._name == 'team') and (Params.title == 'Создать новый фотоотчет' or Params.title == 'Добавить нового участника' or Params.title == 'Создать новый контакт')
+
+    #ФУНКЦИЯ ПРИСВАИВАНИЯ order при добавлении
+    if Params.allowEditOrder
       obj = Params.collection.find().fetch()
       max = 0
       for key in obj

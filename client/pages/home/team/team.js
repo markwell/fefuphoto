@@ -77,7 +77,8 @@ Template.team.events({
     CRUD({
       collection: Team,
       title: 'Добавить нового участника',
-      fields: template.fields
+      fields: template.fields,
+      allowEditOrder: true
     });
   },
 

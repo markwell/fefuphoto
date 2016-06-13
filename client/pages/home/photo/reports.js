@@ -53,7 +53,8 @@ Template.reports.events({
     CRUD({
       collection: Reports,
       title: 'Создать новый фотоотчет',
-      fields: template.fields
+      fields: template.fields,
+      allowEditOrder: true
     });
     e.preventDefault();
   }
