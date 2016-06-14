@@ -3,7 +3,15 @@ Template.reports.onCreated(function() {
     {field:'avatar', type: 'file', title: 'Обложка фотоотчета'},
     {field: 'title', type: 'text', 'title': 'Название'},
     {field: 'description', type: 'textarea', 'title': 'Описание'},
-    {field: 'photographer', type: 'select', 'title': 'Фотограф'},
+    {field: 'photographer', type: 'select', 'title': 'Фотограф', options: function() {
+      team = Team.find({}, {fields: {_id:1, name:1}}).fetch();
+      obj = {}
+      obj[''] = "-- не выбран --"
+      team.forEach(function(one) {
+        obj[one._id] = one.name;
+      })
+      return obj;
+    } },
     {field: 'date', type: 'date', 'title': 'Дата'}
   ];
 });

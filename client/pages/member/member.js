@@ -1,6 +1,9 @@
 Template.member.helpers({
   member: function() {
-    return Team.findOne({'avatar':this.id});
+    return Team.findOne(this.id);
+  },
+  reports: function() {
+    return Reports.find({'photographer':this.id});
   },
   photo: function(id) { return CrudFiles.findOne(id); },
   getNets: function(nets) {
@@ -11,6 +14,7 @@ Template.member.helpers({
         res.push({href: val, type: net});
       }
     }
+    // console.log(Reports.find({'photographer':this.id}).fetch());
     return res;
   }
 });

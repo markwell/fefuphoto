@@ -17,11 +17,11 @@
               <span class="fa fa-pencil edit-person" data-id="{{_id}}"></span>
               <span class="fa fa-times remove-person" data-id="{{_id}}"></span>
               {{/if}}
-              {{#with photo avatar}}
               <a href="/member/{{_id}}">
+                {{#with photo avatar}}
                 <div class="photo embed-responsive embed-responsive-4by3" style="background-image:url('{{url}}')"></div>
+                {{/with}}
               </a>
-              {{/with}}
               <a href="/member/{{_id}}">
                 <h4>{{name}}</h4>
               </a>

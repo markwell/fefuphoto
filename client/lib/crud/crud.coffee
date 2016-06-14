@@ -28,6 +28,8 @@ Files = {}
     title = f.title ? ''
     options = f.options ? []
 
+    if options?()
+      options = options()
 
 
     if item
