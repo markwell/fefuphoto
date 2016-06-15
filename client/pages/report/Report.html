@@ -11,8 +11,8 @@
       <div class="row my-gallery">
         {{#each photos}}
         <figure class="img-block col-md-4 col-sm-6 col-xs-6" itemprop="associatedMedia">
-          <a href="{{url}}" data-size="900x600">
-            <img src="{{url}}" alt="Image description" class="img-responsive" />
+          <a href="{{url}}">
+            <img src="{{url}}" alt="Image description" class="img-responsive photoswipe-img" />
             {{#if login}}
             <i class="fa fa-times remove" data-id="{{_id}}"></i>
             {{/if}}

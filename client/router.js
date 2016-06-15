@@ -19,7 +19,6 @@ Router.route('/member/:id', function() {
 });
 
 Router._scrollToHash = function(hash) {
-
   var section = $(hash);
   if (section.length) {
     var sectionTop = section.offset().top;

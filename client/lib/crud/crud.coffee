@@ -82,6 +82,11 @@ $(document).on 'change', '#crud input[type="file"]', (e) ->
 
 Template.crud.events
   'submit form': (e) ->
+
+    result = (err, res) ->
+      if err then $('#crud .error').html('Ошибка!')
+      else $('#crud').delay(100).queue -> $(this).modal('hide').dequeue()
+
     e.preventDefault()
     data = $(e.target).serializeArray()
     update = {}
@@ -89,9 +94,20 @@ Template.crud.events
       update[one.name] = one.value
     for one, val of Files
       update[one] = val
-    Params.collection.upsert {_id: Params.id}, {$set: update}, (err, res) ->
-      if err then $('#crud .error').html('Ошибка!')
-      else $('#crud').delay(100).queue -> $(this).modal('hide').dequeue()
+    if Params.collection.findOne(Params.id)?
+      Params.collection.update {_id: Params.id}, {$set: update}, result
+    else
+      _update = _.clone update
+      update = {_id : Params.id}
+      for one, val of _update
+        if one.indexOf('.')+1
+          [o1, o2] = one.split('.')
+          update[o1] ?= {}
+          update[o1][o2] = val
+        else
+          update[one] = val
+      Params.collection.insert update, result
+
 
     #ФУНКЦИЯ ПРИСВАИВАНИЯ ORDER ПРИ ДОБАВЛЕНИИ
     if Params.allowEditOrder

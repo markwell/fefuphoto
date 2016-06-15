@@ -32,4 +32,10 @@ Template.Report.events({
 });
 Template.Report.onRendered(function(e) {
   initPhotoSwipeFromDOM('.my-gallery');
+  // setTimeout(function () {
+  //   $('а').each(function(i,elem) {
+  //     console.log(i);
+  //     $(this).attr("data-size", "900x600");
+  //   });
+  // }, 3000);
 });
