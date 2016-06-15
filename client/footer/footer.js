@@ -9,7 +9,7 @@ Template.footer.helpers({
     return Content.findOne('copyright');
   },
   logo: '/img/watermark.png',
-  login: function() {return CHECKLOGIN()}
+  login: function() {return ALLOW()}
 })
 
 Template.footer.events({
