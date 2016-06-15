@@ -6,7 +6,7 @@ Template.Report.helpers({
   photos: function() {
     return Images.find({report: this.id});
   },
-  login: function() {return ALLOW()}
+  login: function() {return CHECKLOGIN()}
 });
 
 Template.Report.events({

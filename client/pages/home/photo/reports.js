@@ -39,7 +39,7 @@ Template.reports.helpers({
     return Reports.find({}, {sort: {order: 1}});
   },
   photo: function(id) { return CrudFiles.findOne(id); },
-  login: function() {return ALLOW()}
+  login: function() {return CHECKLOGIN()}
 });
 
 Template.reports.events({

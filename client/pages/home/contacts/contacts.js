@@ -19,7 +19,7 @@ Template.contacts.helpers({
   isMail: function(type) { return (type == 'envelope-o') ? true : false; },
   isNet: function(type) { return (type != 'phone' && type != 'envelope-o') ? true : false; },
   //проверяем права
-  login: function() {return ALLOW()}
+  login: function() {return CHECKLOGIN()}
 });
 
 
@@ -55,7 +55,7 @@ Template.contacts.events({
 });
 
 Template.contacts.onRendered(function() {
-  setTimeout(function() {
+
     contacts = $('#contacts-list').get(0);
     s = new Sortable(contacts, {
       handle: '.move-block',
@@ -69,7 +69,7 @@ Template.contacts.onRendered(function() {
         });
       }
     });
-  }, 1000);
+
 });
 
 
