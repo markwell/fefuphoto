@@ -16,6 +16,13 @@ Template.team.helpers({
   team: function() {
     return Team.find({}, {sort: {order: 1}, limit: Session.get('teamLimit')});
   },
+  more: function() {
+    if (Session.get('teamLimit') < Team.find().count()) {
+      return true;
+    } else {
+      return false;
+    }
+  },
   login: function() {return CHECKLOGIN()},
   photo: function(id) { return CrudFiles.findOne(id); },
   getNets: function(nets) {
@@ -32,13 +39,6 @@ Template.team.helpers({
 
 Template.team.onRendered(function() {
   if(!this._rendered) {
-    setTimeout(function() {
-
-      if (Team.find().count() <= 4){
-        $('.show-nextMembers').css("display", "none");;
-      }
-    },1000)
-
     $('[title]').tooltip();
     team = $('#team-list').get(0);
     s = new Sortable(team, {
@@ -57,11 +57,6 @@ Template.team.onRendered(function() {
 });
 
 Template.team.events({
-  'click .collapse-btn-link': function(e){
-    e.preventDefault();
-    $("#net-link").css("display", "block");
-  },
-
   // удаление участника
   'click .remove-person': function(e, template) {
     var id = e.target.dataset.id;
@@ -71,8 +66,6 @@ Template.team.events({
 
   // добавление участника
   'click .add-person': function(e, template) {
-    length = Team.find().count();
-    Session.set('teamLimit', length+1);
     CRUD({
       collection: Team,
       title: 'Добавить нового участника',
@@ -93,13 +86,9 @@ Template.team.events({
 
   //обработка события при нажатии на кнопку "смотреть далее"
   'click .show-nextMembers': function(e, template){
-    length = Team.find().count();
-    if (Session.get('teamLimit') === length) {
-      Session.set('teamLimit', 4);
-      $('.show-nextMembers').text('Смотреть всех');
-    } else {
-      Session.set('teamLimit', length);
-      $('.show-nextMembers').text('Скрыть');
-    }
+    Session.set('teamLimit', Team.find().count());
+  },
+  'click .hide-Members': function(e) {
+    Session.set('teamLimit', 4);
   }
 });

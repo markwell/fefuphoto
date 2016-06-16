@@ -10,7 +10,7 @@
       <div class="row">
         <div id="team-list">
           {{#each team}}
-          <div class="col-md-3 col-sm-6" data-id="{{_id}}">
+          <div class="col-md-3 col-sm-6 col-xs-6" data-id="{{_id}}">
             <div class="person">
               {{#if login}}
               <span class="fa fa-arrows move-block" aria-hidden="true"></span>
@@ -42,14 +42,20 @@
           {{/each}}
         </div>
         {{#if login}}
-        <div class="col-md-3 col-sm-6 add-person">
+        <div class="col-md-3 col-sm-6 col-xs-6 add-person">
           Добавить Участника
         </div>
         {{/if}}
       </div>
+      {{#if more}}
       <div class="row next_button">
         <button type="button" class="my_btn btn_md show-nextMembers">Смотреть всех</button>
       </div>
+      {{else}}
+      <div class="row next_button">
+        <button type="button" class="my_btn btn_md hide-Members">Скрыть</button>
+      </div>
+      {{/if}}
     </div>
   </section>
 </template>

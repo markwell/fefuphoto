@@ -10,7 +10,7 @@ Files = {}
     return false
 
   # если передан/не передан id
-  item = {}
+  item = null
 
   if params.id
     item = params.collection.findOne(params.id)
@@ -32,7 +32,7 @@ Files = {}
       options = options()
 
 
-    if item
+    if item?
       if field.indexOf('.')+1
         f = field.split '.'
         if item? and item[f[0]]? and item[f[0]][f[1]]?
@@ -42,7 +42,7 @@ Files = {}
       else
         val = item[field] ? ''
     else
-      val = ''
+      val = f.default ? ''
 
     content += '<div class="form-group">'
     content += '<label>'+title+'</label>'
@@ -110,13 +110,25 @@ Template.crud.events
 
 
     #ФУНКЦИЯ ПРИСВАИВАНИЯ ORDER ПРИ ДОБАВЛЕНИИ
+    # if Params.allowEditOrder
+    #   obj = Params.collection.find().fetch()
+    #   max = 0
+    #   for key in obj
+    #     if max < key.order
+    #       max = key.order
+    #   newOrder = max + 1
+    #   Params.collection.update(Params.id, {
+    #     $set: { "order": newOrder },
+    #   });
+
+    #ФУНКЦИЯ ПРИСВАИВАНИЯ ORDER ПРИ ДОБАВЛЕНИИ
     if Params.allowEditOrder
+      Params.collection.update Params.id, {
+        $set: { "order": 0 },
+      }
       obj = Params.collection.find().fetch()
-      max = 0
       for key in obj
-        if max < key.order
-          max = key.order
-      newOrder = max + 1
-      Params.collection.update(Params.id, {
-        $set: { "order": newOrder },
-      });
+        newOrder = key.order + 1
+        Params.collection.update key._id, {
+          $set: { "order": newOrder },
+        }

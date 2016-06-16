@@ -38,9 +38,15 @@
         </div>
         {{/if}}
       </div>
+      {{#if more}}
       <div class="row next_button">
         <button type="button" class="my_btn btn_md show-nextReports">Смотреть далее</button>
       </div>
+      {{else}}
+      <div class="row next_button">
+        <button type="button" class="my_btn btn_md hide-reports">Скрыть</button>
+      </div>
+      {{/if}}
     </div>
   </section>
 </template>
