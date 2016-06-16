@@ -11,9 +11,9 @@ Template.Report.helpers({
 
 Template.Report.events({
   'click .remove': function(e){
-      var id = e.target.dataset.id;
-      Images.remove(id, function(err,res){
-      });
+    var id = e.target.dataset.id;
+    Images.remove(id, function(err,res){
+    });
   },
   'mouseover .dropzone': function(e) {
     ReportId = this.id;
@@ -31,11 +31,7 @@ Template.Report.events({
   }
 });
 Template.Report.onRendered(function(e) {
-  initPhotoSwipeFromDOM('.my-gallery');
-  // setTimeout(function () {
-  //   $('а').each(function(i,elem) {
-  //     console.log(i);
-  //     $(this).attr("data-size", "900x600");
-  //   });
-  // }, 3000);
+  if(!this._rendered) {
+    initPhotoSwipeFromDOM('.my-gallery');
+  }
 });

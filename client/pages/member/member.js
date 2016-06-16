@@ -14,7 +14,6 @@ Template.member.helpers({
         res.push({href: val, type: net});
       }
     }
-    // console.log(Reports.find({'photographer':this.id}).fetch());
     return res;
   }
 });

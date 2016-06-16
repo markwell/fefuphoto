@@ -10,7 +10,7 @@
       <div class="row">
         <div id="reports-list">
           {{#each reports}}
-          <div class="col-md-4 col-sm-6 col-xs-6 p0" data-id="{{_id}}">
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 p0" data-id="{{_id}}">
             <div class="report-block">
               {{#with photo avatar}}
               <img src="{{url}}" alt="" class="img-responsive">
@@ -38,10 +38,9 @@
         </div>
         {{/if}}
       </div>
-      <!-- <div class="row next_button">
-      <button type="button" class="my_btn btn_md" data-toggle="collapse" data-target="#collapseReports">Смотреть далее</button>
-    </div> -->
-
-  </div>
-</section>
+      <div class="row next_button">
+        <button type="button" class="my_btn btn_md show-nextReports">Смотреть далее</button>
+      </div>
+    </div>
+  </section>
 </template>

@@ -8,18 +8,16 @@ Template.team.onCreated(function() {
     {field:'net.instagram', type: 'text', title: 'Ссылка instagram'},
     {field:'net.facebook', type: 'text', title: 'Ссылка facebook'},
     {field:'net.twitter', type: 'text', title: 'Ссылка twitter'},
-    // {field:'order', type: 'text', title: 'Оставьте пустым'}
-  ]
+  ];
+  Session.set('teamLimit', 4);
 });
 
 Template.team.helpers({
   team: function() {
-    return Team.find({}, {sort: {order: 1}});
+    return Team.find({}, {sort: {order: 1}, limit: Session.get('teamLimit')});
   },
   login: function() {return CHECKLOGIN()},
   photo: function(id) { return CrudFiles.findOne(id); },
-  // console.log(Team.find());
-  // networks: function(id) { return Team.findOne(id); }
   getNets: function(nets) {
     res = [];
     for(net in nets) {
@@ -28,13 +26,19 @@ Template.team.helpers({
         res.push({href: val, type: net});
       }
     }
-
     return res;
   }
 });
 
 Template.team.onRendered(function() {
-  setTimeout(function() {
+  if(!this._rendered) {
+    setTimeout(function() {
+
+      if (Team.find().count() <= 4){
+        $('.show-nextMembers').css("display", "none");;
+      }
+    },1000)
+
     $('[title]').tooltip();
     team = $('#team-list').get(0);
     s = new Sortable(team, {
@@ -49,7 +53,7 @@ Template.team.onRendered(function() {
         });
       }
     });
-  }, 500);
+  }
 });
 
 Template.team.events({
@@ -67,6 +71,8 @@ Template.team.events({
 
   // добавление участника
   'click .add-person': function(e, template) {
+    length = Team.find().count();
+    Session.set('teamLimit', length+1);
     CRUD({
       collection: Team,
       title: 'Добавить нового участника',
@@ -83,5 +89,17 @@ Template.team.events({
       title: 'Редактировать участника',
       fields: template.fields
     });
+  },
+
+  //обработка события при нажатии на кнопку "смотреть далее"
+  'click .show-nextMembers': function(e, template){
+    length = Team.find().count();
+    if (Session.get('teamLimit') === length) {
+      Session.set('teamLimit', 4);
+      $('.show-nextMembers').text('Смотреть всех');
+    } else {
+      Session.set('teamLimit', length);
+      $('.show-nextMembers').text('Скрыть');
+    }
   }
 });

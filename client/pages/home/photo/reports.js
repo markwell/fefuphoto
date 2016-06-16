@@ -14,10 +14,18 @@ Template.reports.onCreated(function() {
     } },
     {field: 'date', type: 'date', 'title': 'Дата'}
   ];
+  Session.set('reportsLimit', 3);
 });
 
 Template.reports.onRendered(function() {
-  setTimeout(function() {
+  if(!this._rendered) {
+    // setTimeout(function() {
+      if (Reports.find().count() <= 3){
+        console.log(Reports.find().count());
+        $('.show-nextReports').css("display", "none");;
+      }
+    // },2000)
+    $('#reports-list').get(0);
     reports = $('#reports-list').get(0);
     s = new Sortable(reports, {
       handle: '.move-block',
@@ -31,12 +39,12 @@ Template.reports.onRendered(function() {
         });
       }
     });
-  }, 500);
+  }
 });
 
 Template.reports.helpers({
   reports: function() {
-    return Reports.find({}, {sort: {order: 1}});
+    return Reports.find({}, {sort: {order: 1}, limit: Session.get('reportsLimit')});
   },
   photo: function(id) { return CrudFiles.findOne(id); },
   login: function() {return CHECKLOGIN()}
@@ -58,6 +66,8 @@ Template.reports.events({
     e.preventDefault();
   },
   'click .add-report': function(e, template) {
+    length = Reports.find().count();
+    Session.set('reportsLimit', length+1);
     CRUD({
       collection: Reports,
       title: 'Создать новый фотоотчет',
@@ -65,5 +75,17 @@ Template.reports.events({
       allowEditOrder: true
     });
     e.preventDefault();
+  },
+  'click .show-nextReports': function(e, template){
+    length = Reports.find().count();
+    if (Session.get('reportsLimit') <= length) {
+      Session.set('reportsLimit', Session.get('reportsLimit')+6);
+    } else {
+      Session.set('reportsLimit', 3);
+      $('.show-nextReports').text('Смотреть далее');
+    }
+    if (Session.get('reportsLimit') > length) {
+      $('.show-nextReports').text('Скрыть');
+    }
   }
 });
