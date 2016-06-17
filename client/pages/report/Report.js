@@ -3,10 +3,13 @@ Template.Report.helpers({
   report: function() {
     return Reports.findOne(this.id);
   },
+  photographer: function (memberID) {
+    return (memberID) ? Team.findOne(memberID) : false;
+  },
   photos: function() {
     return Images.find({report: this.id});
   },
-  login: function() {return CHECKLOGIN()}
+  login: function() {return CHECKLOGIN()},
 });
 
 Template.Report.events({
@@ -25,7 +28,6 @@ Template.Report.events({
       file = new FS.File(files[i]);
       file.report = reportId;
       Images.insert(file, function (err, res) {
-        console.log('Загружено');
       });
     }
   }

@@ -41,11 +41,7 @@ Template.reports.helpers({
     return Reports.find({}, {sort: {order: 1}, limit: Session.get('reportsLimit')});
   },
   more: function() {
-    if (Session.get('reportsLimit') < Reports.find().count()) {
-      return true;
-    } else {
-      return false;
-    }
+    return Session.get('reportsLimit') < Reports.find().count();
   },
   photo: function(id) {
     if (!id) return false;
@@ -70,8 +66,6 @@ Template.reports.helpers({
       e.preventDefault();
     },
     'click .add-report': function(e, template) {
-      // length = Reports.find().count();
-      // Session.set('reportsLimit', length+1);
       CRUD({
         collection: Reports,
         title: 'Создать новый фотоотчет',
@@ -86,5 +80,4 @@ Template.reports.helpers({
     'click .hide-reports': function(e) {
       Session.set('reportsLimit', 3);
     }
-
   });

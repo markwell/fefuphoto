@@ -5,7 +5,9 @@
         <i class="fa fa-camera-retro"></i>
         <h3>{{report.title}}</h3>
         <p>{{report.description}}</p>
-        <p>Фотограф: {{report.photographer}}</p>
+        {{#with photographer report.photographer}}
+          <p>Фотограф: {{name}}</p>
+        {{/with}}
         <p>{{report.date}}</p>
       </div>
       <div class="row my-gallery">
@@ -21,18 +23,21 @@
         {{/each}}
       </div>
     </div>
+    {{#if login}}
+    <div id="dropzone-block">
+      <form action="/file-upload" class="dropzone">
+        <div class="fallback">
+          <input name="file" type="file" multiple />
+        </div>
+      </form>
+    </div>
+    {{/if}}
+    {{> pswp}}
+    <br>
+    <div class="row">
+      <p>Если вы хотите удалить фотографию по какой-либо причине — <a href="mailto:anastasiiamart@mail.ru?subject=Пожалуйста, удалите фотографию
+        &amp;body=Доброго времени суток!%0A%0AПрошу удалить из фотоотчета '{{report.title}}', датой: {{report.date}}  фотографию номер #,%0Aпотому, что%0A%0A%0AПожалуйста, укажите номер фотографии и причину удаления, иначе ваше письмо не будет рассмотрено. %0A%0AФото удаляются в течение суток. Или, как правило, быстрее">напишите нам</a>
+      </p>
+    </div>
   </div>
-  {{#if login}}
-  <div id="dropzone-block">
-    <form action="/file-upload" class="dropzone">
-      <div class="fallback">
-        <input name="file" type="file" multiple />
-      </div>
-    </form>
-  </div>
-  {{/if}}
-  {{> pswp}}
-  <p>Если вы хотите удалить фотографию по какой-либо причине — <a href="mailto:anastasiiamart@mail.ru?subject=Пожалуйста, удалите фотографию
-    &amp;body=Доброго времени суток!%0A%0AПрошу удалить из фотоотчета '{{report.title}}', датой: {{report.date}}  фотографию номер #,%0Aпотому, что%0A%0A%0AПожалуйста, укажите номер фотографии и причину удаления, иначе ваше письмо не будет рассмотрено. %0A%0AФото удаляются в течение суток. Или, как правило, быстрее">напишите нам</a>
-  </p>
 </template>
