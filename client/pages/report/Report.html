@@ -6,9 +6,9 @@
         <h3>{{report.title}}</h3>
         <p>{{report.description}}</p>
         {{#with photographer report.photographer}}
-          <p>Фотограф: {{name}}</p>
+          <p>Фотограф: <a href="/member/{{_id}}">{{name}}</a></p>
         {{/with}}
-        <p>{{report.date}}</p>
+        <p>{{reportDate report.date}}</p>
       </div>
       <div class="row my-gallery">
         {{#each photos}}

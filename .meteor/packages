@@ -41,3 +41,4 @@ ian:accounts-ui-bootstrap-3
 #linto:jquery-ui
 session
 momentjs:moment
+rzymek:moment-locale-ru

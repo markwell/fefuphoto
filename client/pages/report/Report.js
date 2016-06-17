@@ -3,6 +3,9 @@ Template.Report.helpers({
   report: function() {
     return Reports.findOne(this.id);
   },
+  reportDate: function(date) {
+    return moment(date).locale('ru').format('D/MM/YYYY, dddd');
+  },
   photographer: function (memberID) {
     return (memberID) ? Team.findOne(memberID) : false;
   },
