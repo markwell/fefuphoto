@@ -13,6 +13,12 @@ Template.contacts.helpers({
   contacts: function() {
     return Contacts.find({}, {sort: {order: 1}});
   },
+  //возвращаем ссылку без http волшебством JS
+  getLink: function (link) {
+    var a = document.createElement('a');
+    a.href = link;
+    return a.hostname;
+  },
   title: "Контакты",
   // проверки на тип
   isPhone: function(type) { return (type == 'phone') ? true : false; },
