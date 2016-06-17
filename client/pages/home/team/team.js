@@ -17,11 +17,10 @@ Template.team.helpers({
     return Team.find({}, {sort: {order: 1}, limit: Session.get('teamLimit')});
   },
   more: function() {
-    if (Session.get('teamLimit') < Team.find().count()) {
-      return true;
-    } else {
-      return false;
-    }
+    return Session.get('teamLimit') < Team.find().count();
+  },
+  readNext: function (description) {
+    return description.length > 39;
   },
   login: function() {return CHECKLOGIN()},
   photo: function(id) { return CrudFiles.findOne(id); },

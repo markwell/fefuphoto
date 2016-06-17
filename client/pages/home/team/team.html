@@ -28,6 +28,9 @@
               <span>{{post}}</span>
               <br>
               <p class="member-description">{{description}}</p>
+              {{#if readNext description}}
+                <p class="readNext"><a href="/member/{{_id}}">Читать далее</a></p>
+              {{/if}}
               <div class="team-btns">
                 {{#each getNets net}}
                 <a href="{{href}}" target="_blank" title="{{href}}">
