@@ -10,12 +10,15 @@
       <div class="row">
         <div id="reports-list">
           {{#each reports}}
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 p0" data-id="{{_id}}">
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 p0" data-id="{{_id}}">
             <div class="report-block">
+              {{#if photo avatar}}
               {{#with photo avatar}}
-
-              <img src="{{url}}" alt="" class="img-responsive">
+              <img src="{{url}}" alt="Пожалуйста, загрузите картинку" class="img-responsive">
               {{/with}}
+              {{else}}
+              <img src="/img/logo.png" alt="">
+              {{/if}}
               {{#if login}}
               <span class="fa fa-arrows move-block" aria-hidden="true"></span>
               <span class="fa fa-pencil edit-report"  data-id="{{_id}}"></span>
@@ -23,9 +26,9 @@
               {{/if}}
               <a href="/report/{{_id}}" class="image-wrap">
                 <div class="work-descr">
-                  <h4>{{title}}</h4>
-                  <p>{{description}}</p>
                   <p>{{date}}</p>
+                  <h4>{{title}}</h4>
+                  <p class="description">{{description}}</p>
                 </div>
               </a>
             </div>
@@ -33,7 +36,7 @@
           {{/each}}
         </div>
         {{#if login}}
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 add-report">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 add-report">
           Добавить Фотоотчет
         </div>
         {{/if}}

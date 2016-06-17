@@ -123,12 +123,12 @@ Template.crud.events
 
     #ФУНКЦИЯ ПРИСВАИВАНИЯ ORDER ПРИ ДОБАВЛЕНИИ
     if Params.allowEditOrder
-      Params.collection.update Params.id, {
-        $set: { "order": 0 },
-      }
       obj = Params.collection.find().fetch()
       for key in obj
         newOrder = key.order + 1
         Params.collection.update key._id, {
           $set: { "order": newOrder },
         }
+      Params.collection.update Params.id, {
+        $set: { "order": 0 },
+      }

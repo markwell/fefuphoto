@@ -25,7 +25,7 @@ Template.reports.onRendered(function() {
       handle: '.move-block',
       animation: 150,
       onEnd: function() {
-        var i = 0;
+        var i = 1;
         $("#reports-list").children().each(function() {
           id = $(this).data('id');
           Reports.update(id,{$set: {order: i}});
@@ -47,41 +47,44 @@ Template.reports.helpers({
       return false;
     }
   },
-  photo: function(id) { return CrudFiles.findOne(id); },
-  login: function() {return CHECKLOGIN()}
-});
+  photo: function(id) {
+    if (!id) return false;
+    return CrudFiles.findOne(id);
+  },
+    login: function() {return CHECKLOGIN()}
+  });
 
-Template.reports.events({
-  'click .remove-report': function(e, template) {
-    var id = e.target.dataset.id;
-    Reports.remove(id);
-    e.preventDefault();
-  },
-  'click .edit-report': function(e, template) {
-    CRUD({
-      collection: Reports,
-      id: e.target.dataset.id,
-      title: 'Редактировать фотоотчет',
-      fields: template.fields
-    });
-    e.preventDefault();
-  },
-  'click .add-report': function(e, template) {
-    // length = Reports.find().count();
-    // Session.set('reportsLimit', length+1);
-    CRUD({
-      collection: Reports,
-      title: 'Создать новый фотоотчет',
-      fields: template.fields,
-      allowEditOrder: true
-    });
-    e.preventDefault();
-  },
-  'click .show-nextReports': function(e, template){
-    Session.set('reportsLimit', Session.get('reportsLimit')+6);
-  },
-  'click .hide-reports': function(e) {
-    Session.set('reportsLimit', 3);
-  }
+  Template.reports.events({
+    'click .remove-report': function(e, template) {
+      var id = e.target.dataset.id;
+      Reports.remove(id);
+      e.preventDefault();
+    },
+    'click .edit-report': function(e, template) {
+      CRUD({
+        collection: Reports,
+        id: e.target.dataset.id,
+        title: 'Редактировать фотоотчет',
+        fields: template.fields
+      });
+      e.preventDefault();
+    },
+    'click .add-report': function(e, template) {
+      // length = Reports.find().count();
+      // Session.set('reportsLimit', length+1);
+      CRUD({
+        collection: Reports,
+        title: 'Создать новый фотоотчет',
+        fields: template.fields,
+        allowEditOrder: true
+      });
+      e.preventDefault();
+    },
+    'click .show-nextReports': function(e, template){
+      Session.set('reportsLimit', Session.get('reportsLimit')+6);
+    },
+    'click .hide-reports': function(e) {
+      Session.set('reportsLimit', 3);
+    }
 
-});
+  });
