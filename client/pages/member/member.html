@@ -37,18 +37,22 @@
             <h3>Фотоотчеты участника</h3>
           </div>
         </div>
-        <div class="row">
+        <div id="reports-list">
           {{#each reports}}
-          <div class="col-md-4 col-sm-6 col-xs-6 p0" data-id="{{_id}}">
-            <div class="report-block">
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 p0" data-id="{{_id}}">
+            <div class="report-block h200">
+              {{#if photo avatar}}
               {{#with photo avatar}}
-              <img src="{{url}}" alt="" class="img-responsive">
+              <img src="{{url}}" alt="Пожалуйста, загрузите картинку" class="img-responsive">
               {{/with}}
+              {{else}}
+              <img src="/img/logo.png" alt="">
+              {{/if}}
               <a href="/report/{{_id}}" class="image-wrap">
                 <div class="work-descr">
+                  <p>{{reportDate date}}</p>
                   <h4>{{title}}</h4>
-                  <p>{{description}}</p>
-                  <p>{{date}}</p>
+                  <p class="description">{{description}}</p>
                 </div>
               </a>
             </div>
