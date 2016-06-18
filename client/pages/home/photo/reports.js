@@ -12,7 +12,7 @@ Template.reports.onCreated(function() {
       })
       return obj;
     } },
-    {field: 'date', type: 'date', 'title': 'Дата', default: moment().locale("ru").format('MMMM Do YYYY, h:mm:ss a')}
+    {field: 'date', type: 'date', 'title': 'Дата', default: moment().locale('en').format()}
   ];
   Session.set('reportsLimit', 3);
 });
