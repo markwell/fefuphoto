@@ -3,12 +3,12 @@
     <div class="row">
       <div class="section_title">
         <i class="fa fa-camera-retro"></i>
+        <p>{{reportDate report.date}}</p>
         <h3>{{report.title}}</h3>
         <p>{{report.description}}</p>
         {{#with photographer report.photographer}}
           <p>Фотограф: <a href="/member/{{_id}}">{{name}}</a></p>
         {{/with}}
-        <p>{{reportDate report.date}}</p>
       </div>
       <div class="row my-gallery">
         {{#each photos}}

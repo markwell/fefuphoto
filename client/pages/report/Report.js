@@ -4,7 +4,7 @@ Template.Report.helpers({
     return Reports.findOne(this.id);
   },
   reportDate: function(date) {
-    return moment(date).locale('ru').format('D/MM/YYYY, dddd');
+    return moment(date).locale('ru').format('dddd, DD MMMM');
   },
   photographer: function (memberID) {
     return (memberID) ? Team.findOne(memberID) : false;
