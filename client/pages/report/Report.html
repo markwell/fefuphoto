@@ -12,9 +12,9 @@
       </div>
       <div class="row my-gallery">
         {{#each photos}}
-        <figure class="img-block col-md-4 col-sm-6 col-xs-6" itemprop="associatedMedia">
+        <figure class="img-block col-md-4 col-sm-6 col-xs-6">
           <a href="{{url}}">
-            <img src="{{url}}" alt="Image description" class="img-responsive photoswipe-img" />
+            <img src="{{url}}" alt="Изображение загружается" class="img-responsive photoswipe-img" />
             {{#if login}}
             <i class="fa fa-times remove" data-id="{{_id}}"></i>
             {{/if}}
