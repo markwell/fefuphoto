@@ -55,9 +55,11 @@ Template.reports.helpers({
 
 Template.reports.events({
   'click .remove-report': function(e, template) {
+    if (confirm('Удалить?')) {
     var id = e.target.dataset.id;
     Reports.remove(id);
     e.preventDefault();
+  }
   },
   'click .edit-report': function(e, template) {
     CRUD({
