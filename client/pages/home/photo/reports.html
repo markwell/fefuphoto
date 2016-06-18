@@ -10,7 +10,7 @@
       <div class="row">
         <div id="reports-list">
           {{#each reports}}
-          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 p0" data-id="{{_id}}">
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 p0" data-id="{{_id}}">
             <div class="report-block embed-responsive embed-responsive-3by2">
               {{#if photo avatar}}
               {{#with photo avatar}}
@@ -36,7 +36,7 @@
           {{/each}}
         </div>
         {{#if login}}
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 add-report">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 add-report">
           Добавить Фотоотчет
         </div>
         {{/if}}
