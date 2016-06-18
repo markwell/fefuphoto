@@ -11,10 +11,10 @@
         <div id="reports-list">
           {{#each reports}}
           <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 p0" data-id="{{_id}}">
-            <div class="report-block">
+            <div class="report-block embed-responsive embed-responsive-3by2">
               {{#if photo avatar}}
               {{#with photo avatar}}
-              <img src="{{url}}" alt="Пожалуйста, загрузите картинку" class="img-responsive">
+              <img src="{{url}}" alt="Пожалуйста, загрузите картинку" class="embed-responsive-item">
               {{/with}}
               {{else}}
               <img src="/img/logo.png" alt="">
