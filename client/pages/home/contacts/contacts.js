@@ -7,7 +7,6 @@ Template.contacts.onCreated(function() {
   ];
 })
 
-
 Template.contacts.helpers({
   // получаем контакты
   contacts: function() {

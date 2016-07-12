@@ -16,15 +16,15 @@ standard-minifier-css   # CSS minifier run for production mode
 standard-minifier-js    # JS minifier run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
+check
 
-autopublish             # Publish all data to the clients (for prototyping)
+#autopublish             # Publish all data to the clients (for prototyping)
 #insecure                # Allow all DB writes from clients (for prototyping)
 
 twbs:bootstrap
 fortawesome:fontawesome
 stolinski:stylus-multi
 iron:router
-#spectrum:photoswipe
 loftsteinn:photoswipe
 veto44:bootstrap-select
 
@@ -42,3 +42,7 @@ ian:accounts-ui-bootstrap-3
 session
 momentjs:moment
 rzymek:moment-locale-ru
+crosswalk
+sacha:spin
+underscorestring:underscore.string
+audit-argument-checks
